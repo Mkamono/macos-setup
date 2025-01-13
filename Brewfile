@@ -1,6 +1,7 @@
 brew "bottom"
 brew "gh"
 brew "go"
+brew "go-task"
 brew "hadolint"
 brew "mas"
 brew "terraform"
