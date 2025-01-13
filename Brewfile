@@ -1,3 +1,4 @@
+tap "homebrew/bundle"
 brew "bottom"
 brew "gh"
 brew "go"
@@ -5,7 +6,6 @@ brew "go-task"
 brew "hadolint"
 brew "mas"
 brew "terraform"
-
 cask "battery"
 cask "brave-browser"
 cask "discord"
@@ -27,6 +27,5 @@ cask "scroll-reverser"
 cask "spotify"
 cask "steam"
 cask "visual-studio-code"
-
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
