@@ -34,3 +34,43 @@ task -g brew:bundle
 cd ~/macos-setup
 task init
 ```
+
+## Setup Raycast
+
+auto switch input sourceをABCに変更
+![](./imgs/raycast_source.png)
+
+インストールするプラグイン
+- Brave
+- Brew
+- Copy Path or URL
+- GitHub
+- Google Cloud Platform Search
+- Google Search
+- Copy Path or URL
+- Open Browser Profile
+- Test Internet Speed
+- Visual Studio Code
+
+設定するショートカット
+- Applications
+  - Brave: `Option + B`
+  - Discord: `Option + D`
+  - Finder: `Option + E(Explorer)`
+  - Ghostty: `Option + T(Terminal)`
+  - Google カレンダー(PWA): `Option + C`
+  - Notion: `Option + N`
+  - Visual Studio Code: `Option + V`
+  - システム設定: `Option + I`
+- Brave
+  - Search Brave Bookmarks: `Option + ,`
+- Clipboard History
+  - Clipboard History: `Shift + Option + V`
+- Copy Path or URL: `Shift + Option + C`
+- Google Search
+  - Google Search: `Option + G`
+- Window Management
+  - Bottom Half: `Option + Down`
+  - Left Half: `Option + Left`
+  - Maximize: `Option + Up`
+  - Right Half: `Option + Right`
