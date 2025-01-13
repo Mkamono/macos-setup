@@ -12,6 +12,14 @@ tasks:
     cmds:
       - task: home-task # Initialize Taskfile
       - task: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
+      - task: load-zsh-aliases # Load Zsh Aliases
+      - task: setup-karabiner # Setup Karabiner-Elements
+
+  load-zsh-aliases:
+    cmds:
+      - echo 'source $HOME/macos-setup/zsh_alias.sh' >> ~/.zshrc
+    status:
+      - test $LOAD_ALIAS = true
 
   home-task:
     desc: Initialize Taskfile
@@ -32,3 +40,8 @@ tasks:
       REPO:
         sh: pwd
     silent: true
+
+  setup-karabiner:
+    prompt: karabiner-elementsを起動したことを確認しましたか?
+    cmds:
+      - ln -sf $(pwd)/karabiner.json ~/.config/karabiner/karabiner.json

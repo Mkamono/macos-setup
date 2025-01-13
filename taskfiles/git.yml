@@ -2,9 +2,15 @@
 version: "3"
 
 tasks:
-  init:
-    desc: Initialize Git Repository
+  gd:
+    silent: true
     cmds:
-      - read -p "github username:" USERNAME && git config --global user.name $USERNAME
-      - read -p "github email:" EMAIL && git config --global user.email $EMAIL
-      - git --no-pager config list --global
+      - git fetch --prune
+      - git --no-pager branch | grep -v {{.DEFAULT_BRANCH}} | grep -v "^\*.*" | xargs git --no-pager branch -D
+    vars:
+      DEFAULT_BRANCH:
+        sh: git remote show origin | grep 'HEAD branch' | awk '{print $NF}'
+  gpr:
+    silent: true
+    cmds:
+      - git pull --rebase origin main
