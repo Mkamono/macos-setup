@@ -19,11 +19,6 @@ tasks:
 
   bundle:
     desc: Generate Brewfile
-    vars:
-      FORMULAE:
-        sh: brew list --installed-on-request --full-name
-      CASKS:
-        sh: brew list --cask --full-name
     cmds:
       - rm -f ./Brewfile
       - touch ./Brewfile
