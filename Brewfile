@@ -1,7 +1,9 @@
 brew "bottom"
 brew "gh"
 brew "go"
+brew "hadolint"
 brew "mas"
+brew "terraform"
 
 cask "battery"
 cask "brave-browser"
