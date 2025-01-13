@@ -22,6 +22,12 @@ tasks:
     status:
       - test $LOAD_ALIAS = true
 
+  load-zsh-scripts:
+    cmds:
+      - echo 'source $HOME/macos-setup/zsh_script.sh' >> ~/.zshrc
+    status:
+      - test $LOAD_SCRIPT = true
+
   home-task:
     desc: Initialize Taskfile
     cmds:

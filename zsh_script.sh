@@ -1,3 +1,4 @@
+export LOAD_SCRIPT=true
 export MY_CONFIG_DIR=$HOME/macos-setup
 export XDG_CONFIG_HOME=$HOME/.config # ghostty config path
 
