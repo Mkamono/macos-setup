@@ -22,9 +22,9 @@ tasks:
     cmds:
       - rm -f ./Brewfile
       - touch ./Brewfile
-      - brew bundle dump --mas --file=- >> ./Brewfile
-      - echo '' >> ./Brewfile
       - brew bundle dump --formula --file=- >> ./Brewfile
+      - echo '' >> ./Brewfile
+      - brew bundle dump --mas --file=- >> ./Brewfile
       - echo '' >> ./Brewfile
       - brew bundle dump --cask --file=- >> ./Brewfile
       - task: push
