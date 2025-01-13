@@ -27,11 +27,11 @@ tasks:
     cmds:
       - rm -f ./Brewfile
       - touch ./Brewfile
-      - for: { var: FORMULAE }
-        cmd: echo 'brew "{{.ITEM}}"' >> ./Brewfile
+      - brew bundle dump --mas --file=- >> ./Brewfile
       - echo '' >> ./Brewfile
-      - for: { var: CASKS }
-        cmd: echo 'cask "{{.ITEM}}"' >> ./Brewfile
+      - brew bundle dump --formula --file=- >> ./Brewfile
+      - echo '' >> ./Brewfile
+      - brew bundle dump --cask --file=- >> ./Brewfile
       - task: push
     silent: true
 

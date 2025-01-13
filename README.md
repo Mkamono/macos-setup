@@ -52,6 +52,8 @@ gcloud auth application-default login
 auto switch input sourceをABCに変更
 ![](./imgs/raycast_source.png)
 
+ImportSnippetから`raycastSnippets.json`をインポート
+
 インストールするプラグイン
 - Brave
 - Brew
@@ -100,3 +102,14 @@ auto switch input sourceをABCに変更
 ![](./imgs/keyboard_basic_setting.png)
 ![](./imgs/bind1.png)
 ![](./imgs/bind2.png)
+
+## 個別でインストールするアプリケーション
+
+- Studio One 6 Professional
+  - https://my.presonus.com/products/detail/1532 からインストール
+- Synthesizer V Studio Pro
+  - TODO: 後で書く
+- AutoRaise
+  - https://github.com/sbmpost/AutoRaise からダウンロード
+  - ディスクイメージをクリックしマウント
+  - マウントしたディスクイメージからdmgファイルをApplicationsにドラッグアンドドロップ
