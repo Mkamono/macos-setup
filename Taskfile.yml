@@ -5,9 +5,15 @@ version: "3"
 
 includes:
   brew: "./taskfiles/brew.yml"
+  git: "./taskfiles/git.yml"
 
 tasks:
   init:
+    cmds:
+      - task: home-task # Initialize Taskfile
+      - task: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
+
+  home-task:
     desc: Initialize Taskfile
     cmds:
       - rm ~/Taskfile.yml
@@ -17,6 +23,9 @@ tasks:
       - echo 'includes:' >> ~/Taskfile.yml
       - echo '  brew:' >> ~/Taskfile.yml
       - 'echo ''    taskfile: "{{.REPO}}/taskfiles/brew.yml"'' >> ~/Taskfile.yml'
+      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
+      - echo '  git:' >> ~/Taskfile.yml
+      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/git.yml"'' >> ~/Taskfile.yml'
       - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
       - cat ~/Taskfile.yml
     vars:

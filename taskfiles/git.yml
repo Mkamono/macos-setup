@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  init:
+    desc: Initialize Git Repository
+    cmds:
+      - read -p "github username:" USERNAME && git config --global user.name $USERNAME
+      - read -p "github email:" EMAIL && git config --global user.email $EMAIL
+      - git --no-pager config list --global

@@ -14,7 +14,7 @@ tasks:
   diff:
     cmds:
       - git reset HEAD ./Brewfile
-      - git diff ./Brewfile
+      - git --no-pager diff ./Brewfile
     silent: true
 
   bundle:
@@ -49,14 +49,14 @@ tasks:
     preconditions:
       - sh: "! git diff --exit-code ./Brewfile"
 
-  # reset:
-  #   deps:
-  #     - diff
-  #   desc: Reset Local Brewfile to Remote Condition
-  #   prompt: Are you sure you want to reset the Brewfile?
-  #   cmds:
-  #     - cp ./Brewfile ./Brewfile
-  #     - brew bundle cleanup --force
-  #   silent: true
-  #   preconditions:
-  #     - sh: "! diff ./Brewfile ./Brewfile"
+  reset:
+    deps:
+      - diff
+    desc: Reset Local Brewfile to Remote Condition
+    prompt: 上記の差分をリセットしますか?
+    cmds:
+      - git checkout -- ./Brewfile
+      - brew bundle cleanup --force
+    silent: true
+    preconditions:
+      - sh: "! git diff --exit-code ./Brewfile"

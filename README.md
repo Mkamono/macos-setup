@@ -13,17 +13,3 @@
 ```bash
 brew bundle
 ```
-
-
-remote brewfile
-
-local brewfile
-
-差分を検知
-remoteにないがlocalにあるもの→アンスコ
-依存として使われていないかを確認?
-すべてのrmが失敗するまでループ
-
-brew list -1 --formulaeとかでいろいろできそう
-
-remoteにあるがlocalにないもの→インスコ
