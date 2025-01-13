@@ -11,9 +11,10 @@ tasks:
   init:
     cmds:
       - task: home-task # Initialize Taskfile
-      - task: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
+      - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
       - task: load-zsh-aliases # Load Zsh Aliases
       - task: setup-karabiner # Setup Karabiner-Elements
+      - mkdir -p ~/.config/ghostty && ln -sf $(pwd)/ghostty.config ~/.config/ghostty/config # Link Ghostty Config
 
   load-zsh-aliases:
     cmds:

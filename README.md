@@ -1,5 +1,9 @@
 # Setup Mac OS
 
+データのバックアップはこちらから
+
+[backup.md](./docs/backup.md)
+
 ## Install Homebrew
 
 ```bash
@@ -20,10 +24,8 @@ git clone https://github.com/Mkamono/macos-setup.git
 ## Install Brew Packages
 
 ```bash
-cd ~
-cp macos-setup/Brewfile ~/Brewfile
-brew bundle --global
-rm ~/Brewfile
+brew bundle --file=~/macos-setup/Brewfile
+task -g brew:bundle
 ```
 
 ## Setup Zsh, etc... (via task)
