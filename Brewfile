@@ -1,10 +1,10 @@
-mas "Kindle", id: 302584613
-mas "LINE", id: 539883307
-
 brew "bottom"
 brew "gh"
 brew "go"
 brew "mas"
+
+mas "Kindle", id: 302584613
+mas "LINE", id: 539883307
 
 cask "battery"
 cask "brave-browser"
