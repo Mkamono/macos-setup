@@ -1,3 +1,4 @@
+brew "bottom"
 brew "gh"
 brew "go"
 
@@ -6,6 +7,7 @@ cask "brave-browser"
 cask "discord"
 cask "ghostty"
 cask "google-chrome"
+cask "google-cloud-sdk"
 cask "google-drive"
 cask "google-japanese-ime"
 cask "jordanbaird-ice"
