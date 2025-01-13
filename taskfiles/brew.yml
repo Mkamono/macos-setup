@@ -24,9 +24,9 @@ tasks:
       - touch ./Brewfile
       - brew bundle dump --formula --file=- >> ./Brewfile
       - echo '' >> ./Brewfile
-      - brew bundle dump --mas --file=- >> ./Brewfile
-      - echo '' >> ./Brewfile
       - brew bundle dump --cask --file=- >> ./Brewfile
+      - echo '' >> ./Brewfile
+      - brew bundle dump --mas --file=- >> ./Brewfile
       - task: push
     silent: true
 
