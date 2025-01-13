@@ -20,13 +20,7 @@ tasks:
   bundle:
     desc: Generate Brewfile
     cmds:
-      - rm -f ./Brewfile
-      - touch ./Brewfile
-      - brew bundle dump --formula --file=- >> ./Brewfile
-      - echo '' >> ./Brewfile
-      - brew bundle dump --cask --file=- >> ./Brewfile
-      - echo '' >> ./Brewfile
-      - brew bundle dump --mas --file=- >> ./Brewfile
+      - brew bundle dump -f --no-vscode --file=- > ./Brewfile
       - task: push
     silent: true
 
