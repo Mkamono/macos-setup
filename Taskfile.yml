@@ -4,13 +4,22 @@
 version: "3"
 
 includes:
-  brew: ./taskfiles/brew.yml
-
-vars:
-  GREETING: Hello, World!
+  brew: "./taskfiles/brew.yml"
 
 tasks:
-  default:
+  init:
+    desc: Initialize Taskfile
     cmds:
-      - echo "{{.GREETING}}"
+      - rm ~/Taskfile.yml
+      - touch ~/Taskfile.yml
+      - 'echo ''version: "3"'' >> ~/Taskfile.yml'
+      - echo '' >> ~/Taskfile.yml
+      - echo 'includes:' >> ~/Taskfile.yml
+      - echo '  brew:' >> ~/Taskfile.yml
+      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/brew.yml"'' >> ~/Taskfile.yml'
+      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
+      - cat ~/Taskfile.yml
+    vars:
+      REPO:
+        sh: pwd
     silent: true

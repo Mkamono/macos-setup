@@ -10,10 +10,11 @@ tasks:
     cmds:
       - brew list -1 --cask --full-name
       - brew list --installed-on-request --full-name
+
   diff:
     cmds:
-      - diff -u --color ./Brewfile ~/Brewfile
-    ignore_error: true
+      - git reset HEAD ./Brewfile
+      - git diff ./Brewfile
     silent: true
 
   bundle:
@@ -24,31 +25,38 @@ tasks:
       CASKS:
         sh: brew list --cask --full-name
     cmds:
-      - rm -f ~/Brewfile
-      - touch ~/Brewfile
+      - rm -f ./Brewfile
+      - touch ./Brewfile
       - for: { var: FORMULAE }
-        cmd: echo 'brew "{{.ITEM}}"' >> ~/Brewfile
-      - echo '' >> ~/Brewfile
+        cmd: echo 'brew "{{.ITEM}}"' >> ./Brewfile
+      - echo '' >> ./Brewfile
       - for: { var: CASKS }
-        cmd: echo 'cask "{{.ITEM}}"' >> ~/Brewfile
+        cmd: echo 'cask "{{.ITEM}}"' >> ./Brewfile
       - task: diff
     silent: true
 
-  apply:
-    desc: Apply Local Brewfile to Remote
-    cmds:
-      - cp ~/Brewfile ./Brewfile
-      # git commit , push
-    silent: true
-
-  reset:
+  push:
     deps:
       - diff
-    desc: Reset Local Brewfile to Remote Condition
-    prompt: Are you sure you want to reset the Brewfile?
+    desc: Push Brewfile to Remote Repository
+    prompt: Are you sure you want to push the Brewfile?
     cmds:
-      - cp ./Brewfile ~/Brewfile
-      - brew bundle cleanup --force
+      - git reset HEAD
+      - git add ./Brewfile
+      - git commit -m "Update Brewfile"
+      - git push
     silent: true
     preconditions:
-      - sh: "! diff ./Brewfile ~/Brewfile"
+      - sh: "! git diff --exit-code ./Brewfile"
+
+  # reset:
+  #   deps:
+  #     - diff
+  #   desc: Reset Local Brewfile to Remote Condition
+  #   prompt: Are you sure you want to reset the Brewfile?
+  #   cmds:
+  #     - cp ./Brewfile ./Brewfile
+  #     - brew bundle cleanup --force
+  #   silent: true
+  #   preconditions:
+  #     - sh: "! diff ./Brewfile ./Brewfile"
