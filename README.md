@@ -4,7 +4,7 @@
 
 [backup.md](./docs/backup.md)
 
-## Install Homebrew
+## Homebrew
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -33,6 +33,18 @@ task -g brew:bundle
 ```bash
 cd ~/macos-setup
 task init
+```
+
+## Brave
+
+USBメモリに保存した同期コードを入力し、同期まで待つ
+GitHubのパスキーを作っておくと便利
+
+### ブラウザで認証する系
+```bash
+gh auth login
+gcloud auth login
+gcloud auth application-default login
 ```
 
 ## Setup Raycast
@@ -74,3 +86,17 @@ auto switch input sourceをABCに変更
   - Left Half: `Option + Left`
   - Maximize: `Option + Up`
   - Right Half: `Option + Right`
+
+## Google 日本語入力
+
+キーボード > 入力ソース > 編集
+![](./imgs/keyboard.png)
+
+左下に出てくる+ボタンを押して、Google日本語入力のひらがなを追加
+![](./imgs/japanese.png)
+
+入力設定は以下の通り
+
+![](./imgs/keyboard_basic_setting.png)
+![](./imgs/bind1.png)
+![](./imgs/bind2.png)

@@ -32,14 +32,14 @@ tasks:
       - echo '' >> ./Brewfile
       - for: { var: CASKS }
         cmd: echo 'cask "{{.ITEM}}"' >> ./Brewfile
-      - task: diff
+      - task: push
     silent: true
 
   push:
     deps:
       - diff
     desc: Push Brewfile to Remote Repository
-    prompt: Are you sure you want to push the Brewfile?
+    prompt: 上記の差分をリモートリポジトリにプッシュしますか?
     cmds:
       - git reset HEAD
       - git add ./Brewfile
