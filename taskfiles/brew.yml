@@ -5,7 +5,7 @@ tasks:
   init:
     desc: Initialize Brewfile
     cmds:
-      - ln -sf ~/Brewfile ./Brewfile
+      - ln -sf ./Brewfile ~/Brewfile
   list:
     cmds:
       - brew list -1 --cask --full-name
