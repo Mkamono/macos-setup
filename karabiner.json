@@ -565,7 +565,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "pointing_button": "button2" }],
@@ -576,7 +576,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "n" }
+                                        { "key_code": "l" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
