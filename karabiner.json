@@ -270,7 +270,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "b",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "mouse_key": { "horizontal_wheel": 32 } }],
@@ -285,7 +285,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "b",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "mouse_key": { "x": -1536 } }],
@@ -296,7 +296,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "h" }
+                                        { "key_code": "b" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
