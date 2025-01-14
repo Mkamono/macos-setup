@@ -630,7 +630,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "f",
+                                    "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "mouse_key": { "speed_multiplier": 2 } }],
@@ -641,7 +641,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "f" }
+                                        { "key_code": "s" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
