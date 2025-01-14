@@ -695,7 +695,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "g",
+                                    "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "mouse_key": { "speed_multiplier": 0.5 } }],
@@ -706,7 +706,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "g" }
+                                        { "key_code": "a" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
