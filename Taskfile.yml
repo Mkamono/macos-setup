@@ -14,6 +14,7 @@ tasks:
       - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
       - task: load-zsh-aliases # Load Zsh Aliases
       - task: setup-karabiner # Setup Karabiner-Elements
+      - rm -rf $HOME/Library/Application\ Support/com.mitchellh.ghostty
       - mkdir -p ~/.config/ghostty && ln -sf $(pwd)/ghostty.config ~/.config/ghostty/config # Link Ghostty Config
 
   load-zsh-aliases:
