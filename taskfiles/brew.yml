@@ -8,8 +8,7 @@ tasks:
       - ln -sf $(pwd)/Brewfile ~/Brewfile
   list:
     cmds:
-      - brew list -1 --cask --full-name
-      - brew list --installed-on-request --full-name
+      - brew bundle dump -f --no-vscode --file=-
 
   diff:
     cmds:
