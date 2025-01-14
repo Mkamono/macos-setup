@@ -4,7 +4,6 @@ version: "3"
 tasks:
   diff:
     cmds:
-      - pwd
       - cp ~/.config/karabiner/karabiner.json ./karabiner.json
       - git --no-pager diff ./karabiner.json
     silent: true
