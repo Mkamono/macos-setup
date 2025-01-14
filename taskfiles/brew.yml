@@ -45,4 +45,5 @@ tasks:
       - git checkout -- ./Brewfile
       - brew bundle cleanup --force
       - brew bundle
-    silent: true
+    status:
+      - git diff --exit-code ./Brewfile
