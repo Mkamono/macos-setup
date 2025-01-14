@@ -44,4 +44,5 @@ tasks:
     cmds:
       - git checkout -- ./Brewfile
       - brew bundle cleanup --force
+      - brew bundle
     silent: true
