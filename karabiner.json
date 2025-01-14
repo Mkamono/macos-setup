@@ -500,7 +500,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "k",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "pointing_button": "button3" }],
@@ -511,7 +511,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "b" }
+                                        { "key_code": "k" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
