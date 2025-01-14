@@ -435,7 +435,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "v",
+                                    "key_code": "j",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "pointing_button": "button1" }],
@@ -446,7 +446,7 @@
                                     "modifiers": { "optional": ["any"] },
                                     "simultaneous": [
                                         { "key_code": "d" },
-                                        { "key_code": "v" }
+                                        { "key_code": "j" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
