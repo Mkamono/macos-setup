@@ -31,9 +31,7 @@ tasks:
   home-task:
     desc: Initialize Taskfile
     cmds:
-      - rm ~/Taskfile.yml
-      - touch ~/Taskfile.yml
-      - 'echo ''version: "3"'' >> ~/Taskfile.yml'
+      - 'echo ''version: "3"'' > ~/Taskfile.yml'
       - echo '' >> ~/Taskfile.yml
       - echo 'includes:' >> ~/Taskfile.yml
       - echo '  brew:' >> ~/Taskfile.yml
