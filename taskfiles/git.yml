@@ -4,6 +4,7 @@ version: "3"
 tasks:
   gd:
     silent: true
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - git fetch --prune
       - git --no-pager branch | grep -v {{.DEFAULT_BRANCH}} | grep -v "^\*.*" | xargs git --no-pager branch -D
@@ -12,5 +13,6 @@ tasks:
         sh: git remote show origin | grep 'HEAD branch' | awk '{print $NF}'
   gpr:
     silent: true
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - git pull --rebase origin main
