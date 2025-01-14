@@ -6,6 +6,7 @@ tasks:
     desc: Initialize Brewfile
     cmds:
       - ln -sf $(pwd)/Brewfile ~/Brewfile
+
   list:
     cmds:
       - brew bundle dump -f --no-vscode --file=-

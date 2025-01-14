@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  diff:
+    cmds:
+      - pwd
+      - cp ~/.config/karabiner/karabiner.json ./karabiner.json
+      - git --no-pager diff ./karabiner.json
+    silent: true
+
+  push:
+    deps:
+      - diff
+    desc: Push Karabiner Configuration to Remote Repository
+    prompt: 上記の差分をリモートリポジトリにプッシュしますか?
+    cmds:
+      - git reset HEAD
+      - git add ./karabiner.json
+      - git commit -m "Update Karabiner Configuration"
+      - git push
+    status:
+      - git diff --exit-code ./karabiner.json
+
+  reset:
+    deps:
+      - diff
+    desc: Reset Local Karabiner Configuration to Remote Condition
+    prompt: 上記の差分をリセットしますか?
+    cmds:
+      - git checkout -- ./karabiner.json
+      - cp ./karabiner.json ~/.config/karabiner/karabiner.json
+    status:
+      - git diff --exit-code ./karabiner.json

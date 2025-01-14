@@ -6,6 +6,7 @@ version: "3"
 includes:
   brew: "./taskfiles/brew.yml"
   git: "./taskfiles/git.yml"
+  karabiner: "./taskfiles/karabiner.yml"
 
 tasks:
   init:
@@ -14,7 +15,7 @@ tasks:
       - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
       - echo "source $HOME/macos-setup/zsh/entrypoint.sh" >> ~/.zshrc # Load Zsh Settings
       - task: setup-karabiner # Setup Karabiner-Elements
-      - rm -rf $HOME/Library/Application\ Support/com.mitchellh.ghostty
+      - rm -rf ~/Library/Application\ Support/com.mitchellh.ghostty
       - mkdir -p ~/.config/ghostty && ln -sf $(pwd)/ghostty.config ~/.config/ghostty/config # Link Ghostty Config
 
   home-task:
@@ -28,6 +29,9 @@ tasks:
       - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
       - echo '  git:' >> ~/Taskfile.yml
       - 'echo ''    taskfile: "{{.REPO}}/taskfiles/git.yml"'' >> ~/Taskfile.yml'
+      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
+      - echo '  karabiner:' >> ~/Taskfile.yml
+      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/karabiner.yml"'' >> ~/Taskfile.yml'
       - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
       - cat ~/Taskfile.yml
     vars:
