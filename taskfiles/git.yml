@@ -7,6 +7,7 @@ tasks:
     dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - git fetch --prune
+      - git pull --all
       - git --no-pager branch | grep -v {{.DEFAULT_BRANCH}} | grep -v "^\*.*" | xargs git --no-pager branch -D
     vars:
       DEFAULT_BRANCH:
