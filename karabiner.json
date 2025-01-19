@@ -266,7 +266,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "v",
+                                    "key_code": "comma",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
@@ -284,7 +284,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "period",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
@@ -302,7 +302,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "r",
+                                    "key_code": "slash",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
@@ -320,7 +320,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "f",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
@@ -338,7 +338,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "d",
+                                    "key_code": "quote",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
@@ -356,7 +356,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "s",
+                                    "key_code": "p",
                                     "modifiers": {
                                         "mandatory": ["right_shift"],
                                         "optional": ["any"]
