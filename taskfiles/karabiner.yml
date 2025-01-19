@@ -29,6 +29,8 @@ tasks:
       - cp ~/.config/karabiner/karabiner.json ./karabiner.json
 
   apply:
+    deps:
+      - diff
     desc: Apply Karabiner Configuration to Local Machine
     prompt: ローカルマシンにKarabinerの設定を適用しますか?
     cmds:
