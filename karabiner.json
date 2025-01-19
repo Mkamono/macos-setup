@@ -8,7 +8,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "w",
                                     "modifiers": {
                                         "mandatory": ["left_control"],
                                         "optional": ["any"]
@@ -19,7 +19,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "s",
                                     "modifiers": {
                                         "mandatory": ["left_control"],
                                         "optional": ["any"]
@@ -30,7 +30,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "a",
                                     "modifiers": {
                                         "mandatory": ["left_control"],
                                         "optional": ["any"]
@@ -41,7 +41,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "f",
+                                    "key_code": "d",
                                     "modifiers": {
                                         "mandatory": ["left_control"],
                                         "optional": ["any"]
