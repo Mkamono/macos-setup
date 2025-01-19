@@ -4,7 +4,7 @@ version: "3"
 tasks:
   diff:
     cmds:
-      - diff -u --color ~/.config/karabiner/karabiner.json ./karabiner.json
+      - diff -ub --color ~/.config/karabiner/karabiner.json ./karabiner.json
     silent: true
 
   push:
@@ -18,7 +18,7 @@ tasks:
       - git commit -m "Update Karabiner Configuration"
       - git push
     status:
-      - git diff --exit-code ./karabiner.json
+      - git diff --exit-code ./karabiner.json¥
 
   reset:
     deps:
@@ -26,7 +26,10 @@ tasks:
     desc: Reset Local Karabiner Configuration to Remote Condition
     prompt: 上記の差分をリセットしますか?
     cmds:
-      - git checkout -- ./karabiner.json
+      - cp ~/.config/karabiner/karabiner.json ./karabiner.json
+
+  apply:
+    desc: Apply Karabiner Configuration to Local Machine
+    prompt: ローカルマシンにKarabinerの設定を適用しますか?
+    cmds:
       - cp ./karabiner.json ~/.config/karabiner/karabiner.json
-    status:
-      - git diff --exit-code ./karabiner.json
