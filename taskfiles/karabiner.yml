@@ -4,7 +4,7 @@ version: "3"
 tasks:
   diff:
     cmds:
-      - diff -ub --color ~/.config/karabiner/karabiner.json ./karabiner.json
+      - diff -ub --color ~/.config/karabiner/karabiner.json ./karabiner.json || true
     silent: true
 
   push:
