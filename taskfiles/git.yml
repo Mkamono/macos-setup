@@ -18,3 +18,9 @@ tasks:
     dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - git pull --rebase origin main
+
+  gr:
+    silent: true
+    dir: "{{.USER_WORKING_DIR}}"
+    cmds:
+      - git reset --hard origin/$(git branch --show-current)
