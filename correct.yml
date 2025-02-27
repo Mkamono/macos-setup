@@ -1,0 +1,12 @@
+version: "3"
+
+includes:
+  brew:
+    taskfile: "/Users/kamonomakoto/macos-setup/taskfiles/brew.yml"
+    dir: "/Users/kamonomakoto/macos-setup"
+  git:
+    taskfile: "/Users/kamonomakoto/macos-setup/taskfiles/git.yml"
+    dir: "/Users/kamonomakoto/macos-setup"
+  karabiner:
+    taskfile: "/Users/kamonomakoto/macos-setup/taskfiles/karabiner.yml"
+    dir: "/Users/kamonomakoto/macos-setup"

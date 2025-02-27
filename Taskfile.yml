@@ -20,24 +20,12 @@ tasks:
 
   home-task:
     desc: Initialize Taskfile
-    cmds:
-      - 'echo ''version: "3"'' > ~/Taskfile.yml'
-      - echo '' >> ~/Taskfile.yml
-      - echo 'includes:' >> ~/Taskfile.yml
-      - echo '  brew:' >> ~/Taskfile.yml
-      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/brew.yml"'' >> ~/Taskfile.yml'
-      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
-      - echo '  git:' >> ~/Taskfile.yml
-      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/git.yml"'' >> ~/Taskfile.yml'
-      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
-      - echo '  karabiner:' >> ~/Taskfile.yml
-      - 'echo ''    taskfile: "{{.REPO}}/taskfiles/karabiner.yml"'' >> ~/Taskfile.yml'
-      - 'echo ''    dir: "{{.REPO}}"'' >> ~/Taskfile.yml'
-      - cat ~/Taskfile.yml
     vars:
       REPO:
         sh: pwd
-    silent: true
+    cmds:
+      - cp templates/Taskfile.yml.tmpl ~/Taskfile.yml
+      - sed -i '' "s|@REPO|$(pwd)|g" ~/Taskfile.yml
 
   setup-karabiner:
     prompt: karabiner-elementsを起動したことを確認しましたか?
