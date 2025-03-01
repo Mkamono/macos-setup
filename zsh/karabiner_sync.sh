@@ -1,4 +1,4 @@
 #!/bin/zsh
 
 # Karabinerの設定を同期する
-task -g karabiner:sync
+task -g karabiner:sync --silent
