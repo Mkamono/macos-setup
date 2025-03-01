@@ -6,7 +6,7 @@ REPO_DIR=$HOME/macos-setup
 source $REPO_DIR/zsh/alias.sh
 
 # 機能別スクリプトの実行
-source "$REPO_DIR/zsh/karabiner_check.sh"
+source "$REPO_DIR/zsh/karabiner_sync.sh"
 source "$REPO_DIR/zsh/git_operations.sh"
 source "$REPO_DIR/zsh/path_config.sh"
 
