@@ -19,8 +19,8 @@ fi
 cd $REPO_DIR
 if [ "$SHOULD_PULL" = true ]; then
     git pull
-    echo $CURRENT_TIME > "$LAST_PULL_FILE"
+    echo $CURRENT_TIME >"$LAST_PULL_FILE"
 fi
 git --no-pager diff
 git --no-pager status -s
-cd - > /dev/null
+cd - >/dev/null

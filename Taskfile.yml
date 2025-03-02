@@ -7,6 +7,7 @@ includes:
   brew: "./taskfiles/brew.yml"
   git: "./taskfiles/git.yml"
   karabiner: "./taskfiles/karabiner.yml"
+  vscode: "./taskfiles/vscode.yml"
 
 tasks:
   init:
@@ -17,6 +18,7 @@ tasks:
       - task: setup-karabiner # Setup Karabiner-Elements
       - rm -rf ~/Library/Application\ Support/com.mitchellh.ghostty
       - mkdir -p ~/.config/ghostty && ln -sf $(pwd)/ghostty.config ~/.config/ghostty/config # Link Ghostty Config
+      - ln -sf $(pwd)/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json # Link VSCode Settings
 
   home-task:
     desc: Initialize Taskfile
