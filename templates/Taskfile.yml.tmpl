@@ -13,3 +13,18 @@ includes:
   vscode:
     taskfile: "@REPO/taskfiles/vscode.yml"
     dir: "@REPO"
+
+tasks:
+  pull:
+    dir: "@REPO"
+    cmds:
+      - git pull
+      - echo {{.CURRENT_TIME}} > {{.LAST_PULL_FILE}}
+    status:
+      - test $((${{.CURRENT_TIME}} - ${{.LAST_PULL_TIME}})) -le 21600
+    vars:
+      LAST_PULL_FILE: "~/.last_git_pull"
+      LAST_PULL_TIME:
+        sh: cat {{.LAST_PULL_FILE}}
+      CURRENT_TIME:
+        sh: date +%s
