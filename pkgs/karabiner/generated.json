@@ -81,7 +81,12 @@
 									}
 								],
 								"type": "basic"
-							},
+							}
+						]
+					},
+					{
+						"description": "ESC and DELETE",
+						"manipulators": [
 							{
 								"from": {
 									"key_code": "open_bracket",

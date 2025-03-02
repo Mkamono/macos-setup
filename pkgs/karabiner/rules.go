@@ -22,6 +22,26 @@ func wasdRule() core.Rule {
 		{"s", core.DOWN_ARROW},
 		{"a", core.LEFT_ARROW},
 		{"d", core.RIGHT_ARROW},
+	}, func(item record[string], index int) core.Manipulator {
+		return simpleManipulator(
+			requirement{
+				keyCode:   item.key,
+				modifiers: []string{trigger},
+			},
+			action{
+				to: core.To{KeyCode: item.value},
+			})
+	})
+
+	return core.Rule{
+		Description:  "WASD Arrow",
+		Manipulators: manipulators,
+	}
+}
+
+func escAndDeleteRule() core.Rule {
+	trigger := core.LEFT_CONTROL
+	manipulators := lo.Map(orderedMap[string]{
 		{core.OPEN_BRACKET, core.ESCAPE},
 		{"h", core.DELETE_OR_BACKSPACE},
 	}, func(item record[string], index int) core.Manipulator {
@@ -36,7 +56,7 @@ func wasdRule() core.Rule {
 	})
 
 	return core.Rule{
-		Description:  "WASD Arrow",
+		Description:  "ESC and DELETE",
 		Manipulators: manipulators,
 	}
 }

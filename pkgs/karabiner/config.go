@@ -9,6 +9,7 @@ func NewConfig() core.KarabinerConfig {
 				ComplexModifications: core.ComplexModifications{
 					Rules: []core.Rule{
 						wasdRule(),
+						escAndDeleteRule(),
 						mouseEmulationRule(),
 						// 	Description: "Mouse full emulation with right command super fast",
 						// 	Manipulators: []core.Manipulator{
