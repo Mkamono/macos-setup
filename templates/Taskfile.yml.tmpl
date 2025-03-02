@@ -19,6 +19,7 @@ tasks:
     dir: "@REPO"
     cmds:
       - git pull
+      - brew upgrade
       - echo {{.CURRENT_TIME}} > {{.LAST_PULL_FILE}}
     status:
       - test $((${{.CURRENT_TIME}} - ${{.LAST_PULL_TIME}})) -le 21600
