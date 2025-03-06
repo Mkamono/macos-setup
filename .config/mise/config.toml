@@ -1,0 +1,20 @@
+# ~/.config/mise/config.toml
+[tools]
+bottom = "latest"
+gcloud = "latest"
+gh = "latest"
+go = "latest"
+kubectl = "latest"
+node = "latest"
+task = "latest"
+terraform = "latest"
+colima = "latest"
+lima = "latest"
+minikube = "latest"
+
+[env]
+_.path = ["~/go/bin"]
+XDG_CONFIG_HOME = "{{env.HOME}}/macos-setup/.config"
+
+[settings]
+experimental = true

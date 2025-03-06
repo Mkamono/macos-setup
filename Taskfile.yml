@@ -13,12 +13,8 @@ tasks:
   init:
     cmds:
       - task: home-task # Initialize Taskfile
-      - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install Oh My Zsh
-      - echo "source $HOME/macos-setup/zsh/entrypoint.sh" >> ~/.zshrc # Load Zsh Settings
       - task: setup-karabiner # Setup Karabiner-Elements
-      - rm -rf ~/Library/Application\ Support/com.mitchellh.ghostty
-      - mkdir -p ~/.config/ghostty && ln -sf $(pwd)/ghostty.config ~/.config/ghostty/config # Link Ghostty Config
-      - ln -sf $(pwd)/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json # Link VSCode Settings
+      - ln -sf $XDG_CONFIG_HOME/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json # Link VSCode Settings
 
   home-task:
     desc: Initialize Taskfile
