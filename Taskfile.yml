@@ -1,12 +1,12 @@
 version: 3
 
+output: prefixed
+
 tasks:
   default:
     cmds:
       - task mac
-  init:
-    cmds:
-      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
+
   mac:
     desc: "動作検証用 MacOSのVMを立ち上げる"
     cmds:
@@ -18,3 +18,53 @@ tasks:
     watch: true
     sources:
       - "**/*"
+
+  init:
+    cmds:
+      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
+      - cd ~/macos-setup
+      - task: plist
+
+  plist:
+    dir: ./LaunchAgents
+    cmds:
+      - rm -rf ./log
+      - go run main.go
+    sources:
+      - "./*.tmpl.plist"
+      - "./main.go"
+      - "../Taskfile.yml"
+
+  sync:
+    desc: "macos-setupを同期する。launchdに登録されている"
+    silent: true
+    prefix: "{{.DATE}}"
+    vars:
+      DATE:
+        sh: date '+%Y/%m/%d %H:%M:%S'
+    cmds:
+      - echo "Sync completed."
+    deps:
+      - task: rsync
+        vars:
+          SRC: ./config/.gitconfig
+          DST: ~/.gitconfig
+      - task: rsync
+        vars:
+          SRC: ./config/zsh/.zprofile
+          DST: ~/.zprofile
+      - task: rsync
+        vars:
+          SRC: ./config/zsh/.zshrc
+          DST: ~/.zshrc
+
+  rsync:
+    internal: true
+    silent: true
+    requires:
+      vars: [SRC, DST]
+    cmds:
+      - rsync --update {{.SRC}} {{.DST}}
+      - rsync --update {{.DST}} {{.SRC}}
+    status:
+      - cmp {{.SRC}} {{.DST}}
