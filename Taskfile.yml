@@ -75,5 +75,6 @@ tasks:
     cmds:
       - rsync --update {{.SRC}} {{.DST}}
       - rsync --update {{.DST}} {{.SRC}}
+      - echo "Synced {{.SRC}} to {{.DST}}"
     status:
       - cmp {{.SRC}} {{.DST}}
