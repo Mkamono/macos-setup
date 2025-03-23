@@ -1,0 +1,14 @@
+version: 3
+
+tasks:
+  mac:
+    desc: "動作検証用 MacOSのVMを立ち上げる"
+    cmds:
+      - tart stop {{.VM_NAME}} || true
+      - tart clone ghcr.io/cirruslabs/macos-sonoma-vanilla:latest {{.VM_NAME}}
+      - tart run --dir=dotfiles:~/dotfiles:ro {{.VM_NAME}}
+    vars:
+      VM_NAME: mac
+    watch: true
+    sources:
+      - "**/*"
