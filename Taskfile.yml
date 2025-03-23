@@ -1,7 +1,7 @@
 version: 3
 
 output: prefixed
-silent: true
+# silent: true
 
 tasks:
   default:
@@ -13,18 +13,15 @@ tasks:
     cmds:
       - tart stop {{.VM_NAME}} || true
       - tart clone ghcr.io/cirruslabs/macos-sonoma-vanilla:latest {{.VM_NAME}}
-      - tart run --dir=macos-setup:~/macos-setup:ro {{.VM_NAME}}
+      - tart run --dir=macos-setup:${HOME}/macos-setup:ro {{.VM_NAME}}
     vars:
       VM_NAME: mac
     watch: true
-    sources:
-      - "./**/*"
-      - exclude: "./LaunchAgents/log/*"
 
   init:
     cmds:
-      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
-      - cd ~/macos-setup && task plist && task sync
+      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ${HOME}/macos-setup
+      - cd ${HOME}/macos-setup && task plist && task sync
 
   plist:
     desc: "launchdの設定ファイルを生成する"
@@ -48,36 +45,36 @@ tasks:
     deps:
       - task: rsync
         vars:
-          SRC: ./config/.gitconfig
-          DST: ~/.gitconfig
+          SRC: config/.gitconfig
+          DST: ${HOME}/.gitconfig
       - task: rsync
         vars:
-          SRC: ./config/zsh/.zprofile
-          DST: ~/.zprofile
+          SRC: config/zsh/.zprofile
+          DST: ${HOME}/.zprofile
       - task: rsync
         vars:
-          SRC: ./config/zsh/.zshrc
-          DST: ~/.zshrc
+          SRC: config/zsh/.zshrc
+          DST: ${HOME}/.zshrc
       - task: rsync
         vars:
-          SRC: ./config/mise/config.toml
-          DST: ~/.config/mise/config.toml
+          SRC: config/mise/config.toml
+          DST: ${HOME}/.config/mise/config.toml
       - task: rsync
         vars:
-          SRC: ./config/ghostty/config
-          DST: ~/.config/ghostty/config
+          SRC: config/ghostty/config
+          DST: ${HOME}/.config/ghostty/config
       - task: rsync
         vars:
-          SRC: ./config/Code/User/settings.json
-          DST: ~/Library/Application\ Support/Code/User/settings.json
+          SRC: config/Code/User/settings.json
+          DST: ${HOME}/Library/Application Support/Code/User/settings.json
       - task: rsync
         vars:
-          SRC: ./config/Code/User/keybindings.json
-          DST: ~/Library/Application\ Support/Code/User/keybindings.json
+          SRC: config/Code/User/keybindings.json
+          DST: ${HOME}/Library/Application Support/Code/User/keybindings.json
       - task: rsync
         vars:
-          SRC: ./config/karabiner/karabiner.json
-          DST: ~/.config/karabiner/karabiner.json
+          SRC: config/karabiner/karabiner.json
+          DST: ${HOME}/.config/karabiner/karabiner.json
       - task: vscode-extension
       - task: brewfile
       - task: karabiner-format
@@ -87,12 +84,18 @@ tasks:
     requires:
       vars: [SRC, DST]
     cmds:
-      - mkdir -p $(dirname {{.DST}})
-      - rsync --update {{.SRC}} {{.DST}}
-      - rsync --update {{.DST}} {{.SRC}}
-      - echo "Synced {{.SRC}} to {{.DST}}"
+      - mkdir -p "$(dirname '{{.DST}}')"
+      - rsync --update "{{.SRC}}" "{{.DST}}"
+      - rsync --update "{{.DST}}" "{{.SRC}}"
     status:
-      - cmp {{.SRC}} {{.DST}}
+      - cmp "{{.SRC}}" "{{.DST}}"
+
+  rsync-test:
+    cmds:
+      - task: rsync
+        vars:
+          SRC: config/.gitconfig
+          DST: Library/Application Support/Code/User/keybindings.json
 
   vscode-extension:
     vars:
@@ -115,9 +118,9 @@ tasks:
 
   karabiner-format:
     cmds:
-      - mkdir -p ~/.config/karabiner
-      - cd ./pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
+      - mkdir -p ${HOME}/.config/karabiner
+      - cd ./pkgs/karabiner && go run main.go format ${HOME}/.config/karabiner/karabiner.json
       - cd ./pkgs/karabiner && go run main.go format ../../config/karabiner/karabiner.json
-    # sources:
-    #   - "~/.config/karabiner/karabiner.json"
-    #   - "./config/karabiner/karabiner.json"
+    sources:
+      - "${HOME}/.config/karabiner/karabiner.json"
+      - "./config/karabiner/karabiner.json"
