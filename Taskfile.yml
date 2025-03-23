@@ -65,7 +65,7 @@ tasks:
       - task: rsync
         vars:
           SRC: ./config/ghostty/config
-          DST: ~/Library/Application\ Support/com.mitchellh.ghostty/config
+          DST: ~/.config/ghostty/config
 
   rsync:
     internal: true
