@@ -13,8 +13,8 @@ func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("使用方法: karabiner <command> [arguments]")
 		fmt.Println("Commands:")
-		fmt.Println("  format <input.json>    - JSONファイルを読み込んで整形する")
-		fmt.Println("  generate               - 設定からJSONを生成する")
+		fmt.Println("  generate [options]      - 設定からJSONを生成する")
+		fmt.Println("    -o, --output FILE     - 出力先ファイルを指定（デフォルト: generated.json）")
 		os.Exit(1)
 	}
 
@@ -30,8 +30,10 @@ func main() {
 
 	case "generate":
 		generateCmd := flag.NewFlagSet("generate", flag.ExitOnError)
+		output := generateCmd.String("o", "generated.json", "出力先ファイル")
+		generateCmd.StringVar(output, "output", "generated.json", "出力先ファイル")
 		generateCmd.Parse(os.Args[2:])
-		generateConfig()
+		generateConfig(*output)
 
 	default:
 		fmt.Printf("不明なコマンド: %s\n", os.Args[1])
@@ -78,7 +80,7 @@ func formatJSON(inputFile string) {
 
 }
 
-func generateConfig() {
+func generateConfig(outputFile string) {
 	kCon := rule.NewConfig()
 	file, err := json.MarshalIndent(kCon, "", "  ")
 	if err != nil {
@@ -86,10 +88,10 @@ func generateConfig() {
 		os.Exit(1)
 	}
 
-	if err := os.WriteFile("generated.json", file, 0644); err != nil {
+	if err := os.WriteFile(outputFile, file, 0644); err != nil {
 		fmt.Printf("ファイルの書き込みに失敗: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("設定ファイルを生成しました: generated.json")
+	fmt.Printf("設定ファイルを生成しました: %s\n", outputFile)
 }
