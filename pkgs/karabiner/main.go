@@ -13,6 +13,7 @@ func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("使用方法: karabiner <command> [arguments]")
 		fmt.Println("Commands:")
+		fmt.Println("  format <input.json>     - JSONファイルを読み込んで整形する")
 		fmt.Println("  generate [options]      - 設定からJSONを生成する")
 		fmt.Println("    -o, --output FILE     - 出力先ファイルを指定（デフォルト: generated.json）")
 		os.Exit(1)
