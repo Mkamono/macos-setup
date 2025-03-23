@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"karabiner/core"
+	"karabiner/rule"
 	"os"
 )
 
@@ -79,8 +79,7 @@ func formatJSON(inputFile string) {
 }
 
 func generateConfig() {
-	// kCon := NewConfig()
-	kCon := core.KarabinerConfig{}
+	kCon := rule.NewConfig()
 	file, err := json.MarshalIndent(kCon, "", "  ")
 	if err != nil {
 		fmt.Printf("設定の生成に失敗: %v\n", err)

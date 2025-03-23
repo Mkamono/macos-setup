@@ -10,8 +10,10 @@ words:
   - Karabiner
   - mitchellh
   - pkgs
+  - samber
   - sonoma
   - Taskfile
   - tmpl
+  - wasd
 ignoreWords: []
 import: []
