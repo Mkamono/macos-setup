@@ -1,12 +1,18 @@
 version: 3
 
 tasks:
+  default:
+    cmds:
+      - task mac
+  init:
+    cmds:
+      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
   mac:
     desc: "動作検証用 MacOSのVMを立ち上げる"
     cmds:
       - tart stop {{.VM_NAME}} || true
       - tart clone ghcr.io/cirruslabs/macos-sonoma-vanilla:latest {{.VM_NAME}}
-      - tart run --dir=dotfiles:~/dotfiles:ro {{.VM_NAME}}
+      - tart run --dir=macos-setup:~/macos-setup:ro {{.VM_NAME}}
     vars:
       VM_NAME: mac
     watch: true
