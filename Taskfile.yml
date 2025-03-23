@@ -87,6 +87,7 @@ tasks:
     requires:
       vars: [SRC, DST]
     cmds:
+      - mkdir -p $(dirname {{.DST}})
       - rsync --update {{.SRC}} {{.DST}}
       - rsync --update {{.DST}} {{.SRC}}
       - echo "Synced {{.SRC}} to {{.DST}}"
@@ -96,7 +97,9 @@ tasks:
   vscode-extension:
     vars:
       frequency: 600 # 10分
-    cmd: code --list-extensions > ./config/Code/User/extensions
+    cmds:
+      - mkdir -p $(dirname ./config/Code/User/extensions)
+      - code --list-extensions > ./config/Code/User/extensions
     status:
       - go run ./pkgs/fileage/main.go -seconds {{.frequency}} ./config/Code/User/extensions
 
@@ -105,14 +108,16 @@ tasks:
       frequency:
         sh: echo $((60*60*24)) # 1日
     cmds:
+      - mkdir -p ./config
       - brew bundle dump -f --no-vscode --file=./config/Brewfile
     status:
       - go run ./pkgs/fileage/main.go -seconds {{.frequency}} ./config/Brewfile
 
   karabiner-format:
     cmds:
+      - mkdir -p ~/.config/karabiner
       - cd ./pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
       - cd ./pkgs/karabiner && go run main.go format ../../config/karabiner/karabiner.json
-    sources:
-      - "~/.config/karabiner/karabiner.json"
-      - "./config/karabiner/karabiner.json"
+    # sources:
+    #   - "~/.config/karabiner/karabiner.json"
+    #   - "./config/karabiner/karabiner.json"
