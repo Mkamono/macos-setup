@@ -33,7 +33,7 @@ brew "go-task"
 # cask "slack"
 # cask "spotify"
 # cask "steam"
-# cask "visual-studio-code"
+cask "visual-studio-code"
 # cask "zen-browser"
 # mas "Kindle", id: 302584613
 # mas "LINE", id: 539883307

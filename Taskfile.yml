@@ -66,6 +66,14 @@ tasks:
         vars:
           SRC: ./config/ghostty/config
           DST: ~/.config/ghostty/config
+      - task: rsync
+        vars:
+          SRC: ./config/Code/User/settings.json
+          DST: ~/Library/Application\ Support/Code/User/settings.json
+      - task: rsync
+        vars:
+          SRC: ./config/Code/User/keybindings.json
+          DST: ~/Library/Application\ Support/Code/User/keybindings.json
 
   rsync:
     internal: true
