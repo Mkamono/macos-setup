@@ -74,8 +74,13 @@ tasks:
         vars:
           SRC: ./config/Code/User/keybindings.json
           DST: ~/Library/Application\ Support/Code/User/keybindings.json
+      - task: rsync
+        vars:
+          SRC: ./config/karabiner/karabiner.json
+          DST: ~/.config/karabiner/karabiner.json
       - task: vscode-extension
       - task: brewfile
+      - task: karabiner-format
 
   rsync:
     internal: true
@@ -103,3 +108,11 @@ tasks:
       - brew bundle dump -f --no-vscode --file=./config/Brewfile
     status:
       - go run ./pkgs/fileage/main.go -seconds {{.frequency}} ./config/Brewfile
+
+  karabiner-format:
+    cmds:
+      - cd ./pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
+      - cd ./pkgs/karabiner && go run main.go format ../../config/karabiner/karabiner.json
+    sources:
+      - "~/.config/karabiner/karabiner.json"
+      - "./config/karabiner/karabiner.json"
