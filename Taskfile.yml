@@ -17,15 +17,16 @@ tasks:
       VM_NAME: mac
     watch: true
     sources:
-      - "**/*"
+      - "./**/*"
+      - exclude: "./LaunchAgents/log/*"
 
   init:
     cmds:
       - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
-      - cd ~/macos-setup
-      - task: plist
+      - cd ~/macos-setup && task plist
 
   plist:
+    desc: "launchdの設定ファイルを生成する"
     dir: ./LaunchAgents
     cmds:
       - rm -rf ./log
