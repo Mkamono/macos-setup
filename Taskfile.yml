@@ -1,7 +1,7 @@
 version: 3
 
 output: prefixed
-# silent: true
+silent: true
 
 tasks:
   default:
@@ -66,11 +66,11 @@ tasks:
       - task: rsync
         vars:
           SRC: config/Code/User/settings.json
-          DST: ~/Library/Application Support/Code/User/settings.json
+          DST: ~/Library/Application\ Support/Code/User/settings.json
       - task: rsync
         vars:
           SRC: config/Code/User/keybindings.json
-          DST: ~/Library/Application Support/Code/User/keybindings.json
+          DST: ~/Library/Application\ Support/Code/User/keybindings.json
       - task: rsync
         vars:
           SRC: config/karabiner/karabiner.json
@@ -84,9 +84,9 @@ tasks:
     requires:
       vars: [SRC, DST]
     cmds:
-      - mkdir -p "$(dirname '{{.DST}}')"
-      - rsync --update "{{.SRC}}" "{{.DST}}"
-      - rsync --update "{{.DST}}" "{{.SRC}}"
+      - mkdir -p "$(dirname {{.DST}})"
+      - rsync --update {{.SRC}} {{.DST}}
+      - rsync --update {{.DST}} {{.SRC}}
     status:
       - cmp "{{.SRC}}" "{{.DST}}"
 
@@ -95,7 +95,7 @@ tasks:
       - task: rsync
         vars:
           SRC: config/.gitconfig
-          DST: Library/Application Support/Code/User/keybindings.json
+          DST: ~/Library/Application\ Support/Code/User/keybindings.json
 
   vscode-extension:
     vars:
