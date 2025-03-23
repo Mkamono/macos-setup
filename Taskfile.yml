@@ -23,7 +23,7 @@ tasks:
   init:
     cmds:
       - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
-      - cd ~/macos-setup && task plist
+      - cd ~/macos-setup && task plist && task sync
 
   plist:
     desc: "launchdの設定ファイルを生成する"
@@ -58,6 +58,14 @@ tasks:
         vars:
           SRC: ./config/zsh/.zshrc
           DST: ~/.zshrc
+      - task: rsync
+        vars:
+          SRC: ./config/mise/config.toml
+          DST: ~/.config/mise/config.toml
+      - task: rsync
+        vars:
+          SRC: ./config/ghostty/config
+          DST: ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
   rsync:
     internal: true

@@ -4,7 +4,9 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - cirruslabs
+  - ghostty
   - kamono
+  - mitchellh
   - sonoma
   - Taskfile
   - tmpl
