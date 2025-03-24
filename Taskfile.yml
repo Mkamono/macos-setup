@@ -43,18 +43,23 @@ tasks:
     cmds:
       - echo "Sync completed."
     deps:
+      - for:
+          [
+            ghostty/config,
+            mise/config.toml,
+            karabiner/karabiner.json,
+            fish/functions/fish_prompt.fish,
+            fish/fish_variables,
+            fish/config.fish,
+          ]
+        task: rsync
+        vars:
+          SRC: .config/{{.ITEM}}
+          DST: ~/.config/{{.ITEM}}
       - task: rsync
         vars:
           SRC: .config/.gitconfig
           DST: ~/.gitconfig
-      - task: rsync
-        vars:
-          SRC: .config/mise/config.toml
-          DST: ~/.config/mise/config.toml
-      - task: rsync
-        vars:
-          SRC: .config/ghostty/config
-          DST: ~/.config/ghostty/config
       - task: rsync
         vars:
           SRC: .config/Code/User/settings.json
@@ -63,18 +68,6 @@ tasks:
         vars:
           SRC: .config/Code/User/keybindings.json
           DST: ~/Library/Application\ Support/Code/User/keybindings.json
-      - task: rsync
-        vars:
-          SRC: .config/karabiner/karabiner.json
-          DST: ~/.config/karabiner/karabiner.json
-      - task: rsync
-        vars:
-          SRC: .config/fish/config.fish
-          DST: ~/.config/fish/config.fish
-      - task: rsync
-        vars:
-          SRC: .config/fish/fish_variables
-          DST: ~/.config/fish/fish_variables
       - task: vscode-extension
       - task: brewfile
       - task: karabiner-format
@@ -89,13 +82,6 @@ tasks:
       - rsync --update {{.DST}} {{.SRC}}
     status:
       - cmp "{{.SRC}}" "{{.DST}}"
-
-  rsync-test:
-    cmds:
-      - task: rsync
-        vars:
-          SRC: .config/.gitconfig
-          DST: ~/Library/Application\ Support/Code/User/keybindings.json
 
   vscode-extension:
     vars:
