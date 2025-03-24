@@ -15,6 +15,8 @@
 [env]
 _.path = ["~/go/bin"]
 XDG_CONFIG_HOME = "{{env.HOME}}/macos-setup/.config"
+TF_CLI_ARGS_plan = "--parallelism=50"
+TF_CLI_ARGS_apply = "--parallelism=50"
 
 [settings]
 experimental = true
