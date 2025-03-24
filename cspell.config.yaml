@@ -11,8 +11,10 @@ words:
   - mitchellh
   - pkgs
   - samber
+  - shellenv
   - sonoma
   - Taskfile
+  - tfaa
   - tmpl
   - wasd
 ignoreWords: []
