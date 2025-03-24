@@ -5,10 +5,6 @@ silent: true
 
 tasks:
   default:
-    cmds:
-      - task mac
-
-  mac:
     desc: "動作検証用 MacOSのVMを立ち上げる"
     cmds:
       - tart stop {{.VM_NAME}} || true
@@ -16,7 +12,6 @@ tasks:
       - tart run --dir=macos-setup:~/macos-setup:ro {{.VM_NAME}}
     vars:
       VM_NAME: mac
-    watch: true
 
   init:
     cmds:
