@@ -1,8 +1,5 @@
 42crunch.vscode-openapi
 alefragnani.bookmarks
-bmalehorn.shell-syntax
-bradlc.vscode-tailwindcss
-codezombiech.gitignore
 cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
 eamodio.gitlens
@@ -16,7 +13,6 @@ github.vscode-pull-request-github
 golang.go
 hashicorp.hcl
 hashicorp.terraform
-jnoortheen.nix-ide
 lunuan.kubernetes-templates
 ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
@@ -29,7 +25,6 @@ rangav.vscode-thunder-client
 redhat.vscode-yaml
 ritwickdey.liveserver
 saoudrizwan.claude-dev
-skyapps.fish-vscode
 streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
 task.vscode-task
