@@ -14,7 +14,7 @@
 
 [env]
 _.path = ["~/go/bin"]
-XDG_CONFIG_HOME = "{{env.HOME}}/macos-setup/config"
+XDG_CONFIG_HOME = "{{env.HOME}}/macos-setup/.config"
 
 [settings]
 experimental = true
