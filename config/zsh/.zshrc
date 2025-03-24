@@ -8,7 +8,6 @@ alias gd="go run ~/macos-setup/pkgs/gd/main.go"
 alias gu="git add . && git commit -m 'update' && git push"
 
 # terraform
-alias terraform="docker run -it --rm -v $(pwd):/workspace -w /workspace hashicorp/terraform:light"
 alias tf="terraform"
 alias tfv="terraform -v"
 alias tfi="terraform init"
