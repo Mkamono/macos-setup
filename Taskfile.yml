@@ -75,6 +75,10 @@ tasks:
         vars:
           SRC: config/karabiner/karabiner.json
           DST: ~/.config/karabiner/karabiner.json
+      - task: rsync
+        vars:
+          SRC: config/zsh/.p10k.zsh
+          DST: ~/.p10k.zsh
       - task: vscode-extension
       - task: brewfile
       - task: karabiner-format
