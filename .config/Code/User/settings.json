@@ -69,7 +69,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "github.copilot.editor.enableAutoCompletions": true,
-  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.osx": "fish",
   "github.copilot.enable": {
     "*": true
   },

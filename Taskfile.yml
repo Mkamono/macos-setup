@@ -20,7 +20,7 @@ tasks:
 
   init:
     cmds:
-      - git clone -b feat/brew-mise https://github.com/Mkamono/macos-setup.git ~/macos-setup
+      - cp -r . ~/macos-setup
       - cd ~/macos-setup && task plist && task sync
 
   plist:
@@ -49,14 +49,6 @@ tasks:
           DST: ~/.gitconfig
       - task: rsync
         vars:
-          SRC: .config/zsh/.zprofile
-          DST: ~/.zprofile
-      - task: rsync
-        vars:
-          SRC: .config/zsh/.zshrc
-          DST: ~/.zshrc
-      - task: rsync
-        vars:
           SRC: .config/mise/config.toml
           DST: ~/.config/mise/config.toml
       - task: rsync
@@ -77,8 +69,12 @@ tasks:
           DST: ~/.config/karabiner/karabiner.json
       - task: rsync
         vars:
-          SRC: .config/zsh/.p10k.zsh
-          DST: ~/.p10k.zsh
+          SRC: .config/fish/config.fish
+          DST: ~/.config/fish/config.fish
+      - task: rsync
+        vars:
+          SRC: .config/fish/fish_variables
+          DST: ~/.config/fish/fish_variables
       - task: vscode-extension
       - task: brewfile
       - task: karabiner-format

@@ -1,4 +1,7 @@
-#!/bin/zsh
+if status is-interactive
+    eval (/opt/homebrew/bin/brew shellenv)
+    eval (mise activate fish)
+end
 
 # alias
 
@@ -29,9 +32,3 @@ alias reload="clear; exec $SHELL -l"
 
 # config
 alias cfg="code ~/macos-setup"
-
-eval "$(mise activate zsh)"
-eval "$(sheldon source)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
