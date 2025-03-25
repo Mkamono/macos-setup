@@ -1,0 +1,8 @@
+[core]
+account = chengyaye31@gmail.com
+project = coastal-fiber-430001-s0
+
+[compute]
+zone = asia-northeast1-a
+region = asia-northeast1
+
