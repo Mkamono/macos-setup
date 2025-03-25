@@ -1,27 +1,38 @@
 {
+  // Editor
   "editor.guides.bracketPairs": true,
   "editor.stickyScroll.enabled": true,
   "editor.dragAndDrop": false,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+  "workbench.editor.tabSizing": "fixed",
+  "workbench.iconTheme": "material-icon-theme",
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+
+  // Security
+  "security.workspace.trust.enabled": true,
+  "remote.autoForwardPortsSource": "hybrid",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.promptForRemoteFileProtocolHandling": false,
+
+  // Files
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
-  "diffEditor.experimental.showMoves": true,
-  "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.cursorStyleInactive": "line",
-  "terminal.integrated.cursorWidth": 2,
-  "terminal.integrated.rightClickBehavior": "default",
-  "terminal.integrated.tabs.focusMode": "singleClick",
   "files.autoGuessEncoding": true,
   "files.insertFinalNewline": true,
+  "files.eol": "\n",
   "files.associations": {
     "remote-settings.json": "jsonc",
     ".gitignore": "ignore",
     "*.env": "properties",
     "vscode-settings.json": "jsonc"
   },
-  "files.eol": "\n",
+
+  // JSON Schema
   "json.schemas": [
     {
       "fileMatch": [
@@ -35,15 +46,65 @@
       }
     }
   ],
-  "workbench.editor.tabSizing": "fixed",
-  // git
+
+  // Terminal
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "line",
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.rightClickBehavior": "default",
+  "terminal.integrated.tabs.focusMode": "singleClick",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.env.osx": {
+    "SHELL": "/opt/homebrew/bin/fish"
+  },
+  "terminal.integrated.inheritEnv": false,
+
+  // Git
   "git.confirmSync": false,
   "git.autofetch": true,
-  // python
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "always"
+  "git.openRepositoryInParentFolders": "always",
+  "git.ignoreRebaseWarning": true,
+
+  // Language Specific
+  "go.toolsManagement.autoUpdate": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+
   // other extensions
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  "githubPullRequests.createOnPublishBranch": "ask",
+  "githubPullRequests.pullBranch": "always",
+
   "thunder-client.indentSize": 4,
   "cSpell.ignorePaths": [
     "package.json",
@@ -54,55 +115,8 @@
     ".git/objects",
     ".vscode",
     ".vscode-insiders",
-    ".devcontainer",
+    ".devcontainer"
   ],
-  // language specific
-  "go.toolsManagement.autoUpdate": true,
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "githubPullRequests.createOnPublishBranch": "ask",
-  "remote.autoForwardPortsSource": "hybrid",
-  "githubPullRequests.pullBranch": "always",
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "terminal.integrated.defaultProfile.osx": "fish",
-  "github.copilot.enable": {
-    "*": true
-  },
-  "security.workspace.trust.untrustedFiles": "open",
-  "security.promptForRemoteFileProtocolHandling": false,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "plantuml.commandArgs": [],
-  "git.openRepositoryInParentFolders": "always",
-  "emeraldwalk.runonsave": {},
-  "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-  },
-  "diffEditor.ignoreTrimWhitespace": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "codestream.serverUrl": "https://codestream-api-v2-us1.service.newrelic.com",
-  "chat.editing.alwaysSaveWithGeneratedChanges": true,
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "database-client.autoSync": true,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "git.ignoreRebaseWarning": true,
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  }
+
+  "database-client.autoSync": true
 }
