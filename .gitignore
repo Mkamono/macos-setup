@@ -1,3 +1,4 @@
 .task
 LaunchAgents/kamono.script.plist
 log
+.DS_Store
