@@ -31,41 +31,34 @@ tasks:
 
   sync:
     desc: "macos-setupを同期する。launchdに登録されている"
-    prefix: "{{.DATE}}"
     vars:
       DATE:
         sh: date '+%Y/%m/%d %H:%M:%S'
-    cmds:
-      - echo "Sync completed."
+      CONFIG_FIlES:
+        sh: cd home/.config/ && git ls-files
+    prefix: "{{.DATE}}"
+    cmd: echo "Sync completed."
     deps:
-      - for:
-          [
-            ghostty/config,
-            mise/config.toml,
-            karabiner/karabiner.json,
-            fish/functions/fish_prompt.fish,
-            fish/fish_variables,
-            fish/config.fish,
-          ]
-        task: rsync
-        vars:
-          SRC: .config/{{.ITEM}}
-          DST: ~/.config/{{.ITEM}}
-      - task: rsync
-        vars:
-          SRC: .config/.gitconfig
-          DST: ~/.gitconfig
-      - task: rsync
-        vars:
-          SRC: .config/Code/User/settings.json
-          DST: ~/Library/Application\ Support/Code/User/settings.json
-      - task: rsync
-        vars:
-          SRC: .config/Code/User/keybindings.json
-          DST: ~/Library/Application\ Support/Code/User/keybindings.json
       - task: vscode-extension
       - task: brewfile
       - task: karabiner-format
+      - for: { var: CONFIG_FIlES }
+        task: rsync
+        vars:
+          SRC: home/.config/{{.ITEM}}
+          DST: ~/.config/{{.ITEM}}
+      - task: rsync
+        vars:
+          SRC: home/.gitconfig
+          DST: ~/.gitconfig
+      - task: rsync
+        vars:
+          SRC: home/Library/Application\ Support/Code/User/settings.json
+          DST: ~/Library/Application\ Support/Code/User/settings.json
+      - task: rsync
+        vars:
+          SRC: home/Library/Application\ Support/Code/User/keybindings.json
+          DST: ~/Library/Application\ Support/Code/User/keybindings.json
 
   rsync:
     internal: true
@@ -81,27 +74,23 @@ tasks:
   vscode-extension:
     vars:
       frequency: 600 # 10分
-    cmds:
-      - mkdir -p $(dirname ./.config/Code/User/extensions)
-      - code --list-extensions > ./.config/Code/User/extensions
+    cmd: code --list-extensions > "home/Library/Application Support/Code/User/extensions"
     status:
-      - go run ./pkgs/fileage/main.go -seconds {{.frequency}} ./.config/Code/User/extensions
+      - go run pkgs/fileage/main.go -seconds {{.frequency}} home/Library/Application\ Support/Code/User/extensions
 
   brewfile:
     vars:
       frequency:
         sh: echo $((60*60*24)) # 1日
-    cmds:
-      - mkdir -p ./.config
-      - brew bundle dump -f --no-vscode --file=./.config/Brewfile
+    cmd: brew bundle dump -f --no-vscode --file=home/.config/Brewfile
     status:
-      - go run ./pkgs/fileage/main.go -seconds {{.frequency}} ./.config/Brewfile
+      - go run pkgs/fileage/main.go -seconds {{.frequency}} home/.config/Brewfile
 
   karabiner-format:
     cmds:
       - mkdir -p ~/.config/karabiner
-      - cd ./pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
-      - cd ./pkgs/karabiner && go run main.go format ../../.config/karabiner/karabiner.json
+      - cd pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
+      - cd pkgs/karabiner && go run main.go format {{.ROOT_DIR}}/home/.config/karabiner/karabiner.json
     sources:
       - "~/.config/karabiner/karabiner.json"
-      - "./.config/karabiner/karabiner.json"
+      - "{{.ROOT_DIR}}/home/.config/karabiner/karabiner.json"
