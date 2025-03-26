@@ -4,8 +4,7 @@ output: prefixed
 silent: true
 
 vars:
-  MY_GO_BIN:
-    sh: echo {{.ROOT_DIR}}/pkgs/bin
+  MY_GO_BIN: "{{.ROOT_DIR}}/pkgs/bin"
 
 tasks:
   default:
@@ -104,6 +103,7 @@ tasks:
 
   build-bin:
     desc: "Goのバイナリをビルドする"
+    watch: true
     dir: pkgs
     vars:
       PKGS:
@@ -111,7 +111,5 @@ tasks:
     cmds:
       - for: { var: PKGS }
         cmd: go build -C {{.ITEM}} -o {{.MY_GO_BIN}}/{{.ITEM}}
-      - echo $PATH
-      - echo $PATH2
     sources:
       - "./**/*.go"
