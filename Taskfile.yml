@@ -3,6 +3,10 @@ version: 3
 output: prefixed
 silent: true
 
+vars:
+  MY_GO_BIN:
+    sh: echo {{.ROOT_DIR}}/pkgs/bin
+
 tasks:
   default:
     desc: "動作検証用 MacOSのVMを立ち上げる"
@@ -37,7 +41,10 @@ tasks:
       CONFIG_FIlES:
         sh: cd home/.config/ && git ls-files
     prefix: "{{.DATE}}"
-    cmd: echo "Sync completed."
+    cmds:
+      - echo "Sync completed."
+      - echo {{.ROOT_DIR}}
+      - echo {{.MY_GO_BIN}}
     deps:
       - task: vscode-extension
       - task: brewfile
@@ -76,7 +83,7 @@ tasks:
       frequency: 600 # 10分
     cmd: code --list-extensions > "home/Library/Application Support/Code/User/extensions"
     status:
-      - go run pkgs/fileage/main.go -seconds {{.frequency}} home/Library/Application\ Support/Code/User/extensions
+      - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/Library/Application\ Support/Code/User/extensions"
 
   brewfile:
     vars:
@@ -84,13 +91,27 @@ tasks:
         sh: echo $((60*60*24)) # 1日
     cmd: brew bundle dump -f --no-vscode --file=home/.config/Brewfile
     status:
-      - go run pkgs/fileage/main.go -seconds {{.frequency}} home/.config/Brewfile
+      - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/.config/Brewfile"
 
   karabiner-format:
     cmds:
       - mkdir -p ~/.config/karabiner
-      - cd pkgs/karabiner && go run main.go format ~/.config/karabiner/karabiner.json
-      - cd pkgs/karabiner && go run main.go format {{.ROOT_DIR}}/home/.config/karabiner/karabiner.json
+      - "{{.MY_GO_BIN}}/karabiner format ~/.config/karabiner/karabiner.json"
+      - "{{.MY_GO_BIN}}/karabiner format {{.ROOT_DIR}}/home/.config/karabiner/karabiner.json"
     sources:
       - "~/.config/karabiner/karabiner.json"
       - "{{.ROOT_DIR}}/home/.config/karabiner/karabiner.json"
+
+  build-bin:
+    desc: "Goのバイナリをビルドする"
+    dir: pkgs
+    vars:
+      PKGS:
+        sh: ls | grep -vw "bin"
+    cmds:
+      - for: { var: PKGS }
+        cmd: go build -C {{.ITEM}} -o {{.MY_GO_BIN}}/{{.ITEM}}
+      - echo $PATH
+      - echo $PATH2
+    sources:
+      - "./**/*.go"
