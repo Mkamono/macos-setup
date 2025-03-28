@@ -1,6 +1,7 @@
 if status is-interactive
     eval (/opt/homebrew/bin/brew shellenv)
     eval (mise activate fish)
+    git -C ~/macos-setup --no-pager diff
 end
 
 # alias
