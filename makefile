@@ -1,27 +1,12 @@
-# MacをセットアップするためのMakefile
-SHELL := /bin/zsh
-DOTFILE_DIR := ~/macos-setup
+default:
+	@/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	@cd ./.config && /opt/homebrew/bin/brew bundle || true
 
-# mise envでも指定しているので注意
-XDG_CONFIG_HOME := $(HOME)/macos-setup/.config
+	@mkdir -p ~/.config/fish
+	@cp ./.config/fish/config.fish ~/.config/fish/config.fish
+	@cp ./.config/fish/fish_variables ~/.config/fish/fish_variables
 
-.PHONY: install
-install: /opt/homebrew/bin/brew symlink /usr/local/bin/battery
-	@source ~/.zshrc
-	@echo "Installed"
-
-/opt/homebrew/bin/brew: # Homebrew
-	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	@echo "Installed Homebrew"
-
-.PHONY: symlink
-symlink: # シンボリックリンクを作成
-	@ln -sf $(DOTFILE_DIR)/.zshrc ~/.zshrc
-	@mkdir -p ~/.config/mise && ln -sf $(XDG_CONFIG_HOME)/mise/config.toml ~/.config/mise/config.toml
-	@mkdir -p ~/.config/ghostty && ln -sf $(XDG_CONFIG_HOME)/ghostty/config ~/.config/ghostty/config
-	@echo "Symlinked"
-
-/usr/local/bin/battery: # battery
-	@curl -s https://raw.githubusercontent.com/actuallymentor/battery/main/setup.sh | bash
-	@battery maintain 80
-	@echo "Installed battery"
+	@echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+	@chsh -s /opt/homebrew/bin/fish
+	@echo "\n\nNext: task init"
+	@/opt/homebrew/bin/fish

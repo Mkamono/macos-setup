@@ -1,0 +1,122 @@
+{
+  // Editor
+  "editor.guides.bracketPairs": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.dragAndDrop": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+  "workbench.editor.tabSizing": "fixed",
+  "workbench.iconTheme": "material-icon-theme",
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+
+  // Security
+  "security.workspace.trust.enabled": true,
+  "remote.autoForwardPortsSource": "hybrid",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.promptForRemoteFileProtocolHandling": false,
+
+  // Files
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.autoGuessEncoding": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
+  "files.associations": {
+    "remote-settings.json": "jsonc",
+    ".gitignore": "ignore",
+    "*.env": "properties",
+    "vscode-settings.json": "jsonc"
+  },
+
+  // JSON Schema
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "settings.json",
+        "remote-settings.json",
+        "devcontainer.json",
+        "vscode-settings.json"
+      ],
+      "schema": {
+        "allowTrailingCommas": true
+      }
+    }
+  ],
+
+  // Terminal
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "line",
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.rightClickBehavior": "default",
+  "terminal.integrated.tabs.focusMode": "singleClick",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.env.osx": {
+    "SHELL": "/opt/homebrew/bin/fish"
+  },
+  "terminal.integrated.inheritEnv": false,
+
+  // Git
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.ignoreRebaseWarning": true,
+
+  // Language Specific
+  "go.toolsManagement.autoUpdate": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+
+  // other extensions
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  "githubPullRequests.createOnPublishBranch": "ask",
+  "githubPullRequests.pullBranch": "always",
+
+  "thunder-client.indentSize": 4,
+  "cSpell.ignorePaths": [
+    "package.json",
+    "package-lock.json",
+    "yarn.lock",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    ".devcontainer"
+  ],
+
+  "database-client.autoSync": true
+}

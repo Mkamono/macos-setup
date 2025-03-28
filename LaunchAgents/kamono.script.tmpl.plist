@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- launchd プロセスで一意ならOK -->
+    <key>Label</key>
+    <string>com.kamono.script</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <!-- 実行するコマンド -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>zsh</string>
+        <string>-c</string>
+        <string>task -t={{.TASKFILE_PATH}} sync</string>
+    </array>
+
+    <!-- launchd を読み込んだタイミングで実行 -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>10</integer>
+
+    <!-- ログ保存用 -->
+    <key>StandardOutPath</key>
+    <string>{{.LOG_DIR}}/std_out.txt</string>
+    <key>StandardErrorPath</key>
+    <string>{{.LOG_DIR}}/std_err.txt</string>
+</dict>
+</plist>
+
+<!-- {{.TEMPLATE_PATH}} -->

@@ -1,14 +1,22 @@
 version: "0.2"
-ignorePaths: [
-  "./Brewfile",
-  "vscode-extensions"
-]
+ignorePaths: [Brewfile]
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - cirruslabs
+  - fileage
   - ghostty
-  - karabiner
+  - kamono
+  - kamonomakoto
+  - Karabiner
+  - mitchellh
+  - pkgs
+  - samber
+  - shellenv
+  - sonoma
   - Taskfile
-  - taskfiles
+  - tfaa
+  - tmpl
+  - wasd
 ignoreWords: []
 import: []

@@ -1,0 +1,7 @@
+fish/completions
+gcloud/*
+!gcloud/configurations
+karabiner/automatic_backups
+karabiner/assets/complex_modifications
+raycast/extensions
+raycast/config.json
