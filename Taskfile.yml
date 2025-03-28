@@ -42,8 +42,6 @@ tasks:
     prefix: "{{.DATE}}"
     cmds:
       - echo "Sync completed."
-      - echo {{.ROOT_DIR}}
-      - echo {{.MY_GO_BIN}}
     deps:
       - task: vscode-extension
       - task: brewfile
