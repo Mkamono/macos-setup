@@ -88,9 +88,9 @@ tasks:
     vars:
       frequency:
         sh: echo $((60*60*24)) # 1日
-    cmd: brew bundle dump -f --no-vscode --file=home/.config/Brewfile
+    cmd: brew bundle dump -f --no-vscode --file=home/Brewfile
     status:
-      - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/.config/Brewfile"
+      - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/Brewfile"
 
   karabiner-format:
     cmds:
