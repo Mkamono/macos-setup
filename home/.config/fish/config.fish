@@ -32,3 +32,8 @@ alias reload="clear; exec $SHELL -l"
 
 # config
 alias cfg="code ~/macos-setup"
+
+# kubernetes
+alias k="kubectl"
+alias kg="kubectl get"
+alias kga="kubectl get --all-namespaces"
