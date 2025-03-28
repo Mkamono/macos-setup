@@ -59,6 +59,10 @@ tasks:
           DST: ~/.gitconfig
       - task: rsync
         vars:
+          SRC: home/.docker/config.json
+          DST: ~/.docker/config.json
+      - task: rsync
+        vars:
           SRC: home/Library/Application\ Support/Code/User/settings.json
           DST: ~/Library/Application\ Support/Code/User/settings.json
       - task: rsync
