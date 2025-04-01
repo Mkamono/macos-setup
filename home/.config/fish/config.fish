@@ -5,37 +5,44 @@ if status is-interactive
     git -C ~/macos-setup ls-files --others --exclude-standard
 end
 
-# alias
+# abbr
 
 # git
-alias g="git"
-alias gd="go run ~/macos-setup/pkgs/gd/main.go"
-alias gu="git add . && git commit -m 'update' && git push"
+abbr -a -- g git
+abbr -a -- gd 'go run ~/macos-setup/pkgs/gd/main.go'
+abbr -a -- gu 'git add . && git commit -m "update" && git push'
 
 # terraform
-alias tf="terraform"
-alias tfv="terraform -v"
-alias tfi="terraform init"
-alias tfa="terraform apply"
-alias tfaa="terraform apply -auto-approve"
-alias tfd="terraform destroy"
-alias tff="terraform fmt"
-alias tfp="terraform plan"
-alias tfs="terraform state"
+abbr -a -- tf terraform
+abbr -a -- tfv 'terraform -v'
+abbr -a -- tfi 'terraform init'
+abbr -a -- tfa 'terraform apply'
+abbr -a -- tfaa 'terraform apply -auto-approve'
+abbr -a -- tfd 'terraform destroy'
+abbr -a -- tff 'terraform fmt'
+abbr -a -- tfp 'terraform plan'
+abbr -a -- tfs 'terraform state'
 
 # ls
-alias ll="ls -l"
-alias la="ls -la"
-alias l="ls -lA"
+abbr -a -- ll 'ls -l'
+abbr -a -- la 'ls -la'
+abbr -a -- l 'ls -lA'
 
 # shell
-alias c="clear"
-alias reload="clear; exec $SHELL -l"
+abbr -a -- c clear
+abbr -a -- reload 'clear; exec $SHELL -l'
 
 # config
-alias cfg="code ~/macos-setup"
+abbr -a -- cfg 'code ~/macos-setup'
 
 # kubernetes
-alias k="kubectl"
-alias kg="kubectl get"
-alias kga="kubectl get --all-namespaces"
+abbr -a -- k kubectl
+abbr -a -- kg 'kubectl get'
+abbr -a -- kga 'kubectl get --all-namespaces'
+
+# mise
+abbr -a -- m mise
+abbr -a -- mr 'mise run'
+
+# other
+abbr -a -- h history
