@@ -81,7 +81,9 @@ tasks:
   vscode-extension:
     vars:
       frequency: 600 # 10分
-    cmd: code --list-extensions > "home/Library/Application Support/Code/User/extensions"
+    cmds:
+      - code --list-extensions > /tmp/extensions
+      - cp /tmp/extensions "home/Library/Application Support/Code/User/extensions"
     status:
       - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/Library/Application\ Support/Code/User/extensions"
 
