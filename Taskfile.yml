@@ -8,7 +8,7 @@ vars:
 
 tasks:
   default:
-    desc: "動作検証用 MacOSのVMを立ち上げる"
+    desc: 動作検証用 MacOSのVMを立ち上げる
     cmds:
       - tart stop {{.VM_NAME}} || true
       - tart clone ghcr.io/cirruslabs/macos-sonoma-vanilla:latest {{.VM_NAME}}
@@ -22,7 +22,7 @@ tasks:
       - cd ~/macos-setup && task plist && task sync
 
   plist:
-    desc: "launchdの設定ファイルを生成する"
+    desc: launchdの設定ファイルを生成する
     dir: ./LaunchAgents
     cmds:
       - rm -rf ./log
@@ -33,7 +33,7 @@ tasks:
       - "../Taskfile.yml"
 
   sync:
-    desc: "macos-setupを同期する。launchdに登録されている"
+    desc: macos-setupを同期する。launchdに登録されている
     vars:
       DATE:
         sh: date '+%Y/%m/%d %H:%M:%S'
@@ -105,7 +105,7 @@ tasks:
       - "{{.ROOT_DIR}}/home/.config/karabiner/karabiner.json"
 
   build-bin:
-    desc: "Goのバイナリをビルドする"
+    desc: Goのバイナリをビルドする
     watch: true
     dir: pkgs
     vars:
@@ -118,6 +118,7 @@ tasks:
       - "./**/*.go"
 
   all-sync:
+    desc: macos-setupを同期する。launchdに登録されていない
     dir: home
     cmds:
       - rsync -av --exclude-from=rsync_ignore.txt ~/ ./
