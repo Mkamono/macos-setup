@@ -116,3 +116,8 @@ tasks:
         cmd: go build -C {{.ITEM}} -o {{.MY_GO_BIN}}/{{.ITEM}}
     sources:
       - "./**/*.go"
+
+  all-sync:
+    dir: home
+    cmds:
+      - rsync -av --exclude-from=rsync_ignore.txt ~/ ./
