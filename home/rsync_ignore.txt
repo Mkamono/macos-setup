@@ -1,3 +1,4 @@
+Applications
 Movies
 Pictures
 Downloads
@@ -5,17 +6,34 @@ Library
 .Trash
 .local
 
+*.pem
+*_rsa
+*.key
+*.key.*
+*.crt
+*.crt.*
+*.pub
+
 Cache
 cache
 .cache
+*-cache*
 
 node_modules
 bin
 mod
 dist
+.localized
 
 *.sock
 .colima/_lima
 .bitwarden-ssh-age
 .colima/_lima/colima/diffdisk
 .vscode/extensions
+sessionmanager-bundle
+go/pkg/sumdb
+.kuberlr
+.terraform.d
+.CFUserTextEncoding
+.last_git_pull
+.dbclient/jdbc-adapter-server.jar
