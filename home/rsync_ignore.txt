@@ -5,6 +5,7 @@ Downloads
 Library
 .Trash
 .local
+Documents/repo
 
 *.pem
 *_rsa
@@ -37,3 +38,4 @@ go/pkg/sumdb
 .CFUserTextEncoding
 .last_git_pull
 .dbclient/jdbc-adapter-server.jar
+macos-setup

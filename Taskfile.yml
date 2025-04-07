@@ -65,6 +65,7 @@ tasks:
         vars:
           SRC: home/{{.ITEM}}
           DST: ~/{{.ITEM}}
+      - task: delete-empty-dir
 
   rsync:
     internal: true
@@ -122,3 +123,11 @@ tasks:
     dir: home
     cmds:
       - rsync -av --exclude-from=rsync_ignore.txt ~/ ./
+
+  delete-empty-dir:
+    desc: 空のディレクトリを削除する
+    dir: home
+    cmds:
+      - find . -type d -empty -delete
+    status:
+      - find . -type d -empty | grep -v ".git"

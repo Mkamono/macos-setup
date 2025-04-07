@@ -118,5 +118,16 @@
     ".devcontainer"
   ],
 
-  "database-client.autoSync": true
+  "database-client.autoSync": true,
+  "coolcline.allowedCommands": [
+    "npm test",
+    "npm install",
+    "tsc",
+    "git log",
+    "git diff",
+    "git show"
+  ],
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.localeOverride": "ja"
 }
