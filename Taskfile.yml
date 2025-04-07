@@ -129,5 +129,3 @@ tasks:
     dir: home
     cmds:
       - find . -type d -empty -delete
-    status:
-      - find . -type d -empty | grep -v ".git"
