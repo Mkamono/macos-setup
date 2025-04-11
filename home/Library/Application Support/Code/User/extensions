@@ -1,8 +1,8 @@
 42crunch.vscode-openapi
 alefragnani.bookmarks
-coolcline.coolcline
 cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
+docker.docker
 eamodio.gitlens
 esbenp.prettier-vscode
 exiasr.hadolint
@@ -25,6 +25,7 @@ pkief.material-icon-theme
 rangav.vscode-thunder-client
 redhat.vscode-yaml
 ritwickdey.liveserver
+saoudrizwan.claude-dev
 streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
 task.vscode-task
