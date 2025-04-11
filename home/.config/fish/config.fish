@@ -9,7 +9,6 @@ end
 
 # git
 abbr -a -- g git
-abbr -a -- gd 'go run ~/macos-setup/pkgs/gd/main.go'
 abbr -a -- gu 'git add . && git commit -m "update" && git push'
 
 # terraform
