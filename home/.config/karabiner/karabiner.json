@@ -543,6 +543,9 @@
                 "from": {
                   "key_code": "semicolon",
                   "modifiers": {
+                    "mandatory": [
+                      "right_shift"
+                    ],
                     "optional": [
                       "any"
                     ]

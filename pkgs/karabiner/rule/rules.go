@@ -174,10 +174,10 @@ func mouseEmulationRule() core.Rule {
 			})
 	})
 
-	// 右Shiftキーを押している間だけマウスフルエミュレーションを有効にする
 	mouseTriggerManipulator := []core.Manipulator{simpleManipulator(
 		requirement{
 			keyCode: core.RIGHT_SHIFT,
+			// keyCode
 		},
 		action{
 			to:           core.To{KeyCode: core.RIGHT_SHIFT},
@@ -187,8 +187,8 @@ func mouseEmulationRule() core.Rule {
 
 	scrollTriggerManipulator := []core.Manipulator{simpleManipulator(
 		requirement{
-			keyCode: core.SEMICOLON,
-			// modifiers:  []string{core.RIGHT_SHIFT},
+			keyCode:    core.SEMICOLON,
+			modifiers:  []string{core.RIGHT_SHIFT}, // 後でこれはquoteに変えたい
 			conditions: mouseCondition,
 		},
 		action{

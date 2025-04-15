@@ -16,6 +16,7 @@ const (
 	CAPS_LOCK           = "caps_lock"
 	OPEN_BRACKET        = "open_bracket"
 	SEMICOLON           = "semicolon"
+	QUOTE               = "quote"
 
 	// Mouse buttons
 	BUTTON1 = "button1"
