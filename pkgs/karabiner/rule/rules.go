@@ -14,14 +14,26 @@ type record[T any] struct {
 
 type orderedMap[T any] []record[T]
 
-// WASDと矢印キーの対応
-func wasdRule() core.Rule {
+var arrowLiteralKey = struct {
+	LEFT_ARROW  string
+	RIGHT_ARROW string
+	UP_ARROW    string
+	DOWN_ARROW  string
+}{
+	LEFT_ARROW:  "s",
+	RIGHT_ARROW: "f",
+	UP_ARROW:    "e",
+	DOWN_ARROW:  "d",
+}
+
+// 矢印キーの設定
+func arrowKeyRule() core.Rule {
 	trigger := core.LEFT_CONTROL
 	manipulators := lo.Map(orderedMap[string]{
-		{"w", core.UP_ARROW},
-		{"s", core.DOWN_ARROW},
-		{"a", core.LEFT_ARROW},
-		{"d", core.RIGHT_ARROW},
+		{arrowLiteralKey.UP_ARROW, core.UP_ARROW},
+		{arrowLiteralKey.DOWN_ARROW, core.DOWN_ARROW},
+		{arrowLiteralKey.LEFT_ARROW, core.LEFT_ARROW},
+		{arrowLiteralKey.RIGHT_ARROW, core.RIGHT_ARROW},
 	}, func(item record[string], index int) core.Manipulator {
 		return simpleManipulator(
 			requirement{
@@ -34,7 +46,7 @@ func wasdRule() core.Rule {
 	})
 
 	return core.Rule{
-		Description:  "WASD Arrow",
+		Description:  "Arrow Keys",
 		Manipulators: manipulators,
 	}
 }
@@ -63,6 +75,12 @@ func escAndDeleteRule() core.Rule {
 
 // マウスのフルエミュレーション
 func mouseEmulationRule() core.Rule {
+	// 移動量
+	pointerMoveAmount := 1536
+	wheelMoveAmount := 32
+	speedMultiplier := 2.0
+	slowMouseSpeed := 0.3
+
 	// マウスポインタの移動
 	mouseCondition := []core.Condition{
 		{
@@ -73,10 +91,10 @@ func mouseEmulationRule() core.Rule {
 	}
 
 	mouseManipulators := lo.Map(orderedMap[core.MouseKey]{
-		{"a", core.MouseKey{X: -1536}},
-		{"s", core.MouseKey{Y: 1536}},
-		{"w", core.MouseKey{Y: -1536}},
-		{"d", core.MouseKey{X: 1536}},
+		{arrowLiteralKey.LEFT_ARROW, core.MouseKey{X: -pointerMoveAmount}},
+		{arrowLiteralKey.DOWN_ARROW, core.MouseKey{Y: pointerMoveAmount}},
+		{arrowLiteralKey.UP_ARROW, core.MouseKey{Y: -pointerMoveAmount}},
+		{arrowLiteralKey.RIGHT_ARROW, core.MouseKey{X: pointerMoveAmount}},
 	}, func(item record[core.MouseKey],
 		index int) core.Manipulator {
 		return simpleManipulator(
@@ -91,8 +109,8 @@ func mouseEmulationRule() core.Rule {
 	})
 
 	mouseSpeedManipulators := lo.Map(orderedMap[core.MouseKey]{
-		{"n", core.MouseKey{SpeedMultiplier: 2.0}},
-		{"m", core.MouseKey{SpeedMultiplier: 0.3}},
+		{"n", core.MouseKey{SpeedMultiplier: speedMultiplier}},
+		{"m", core.MouseKey{SpeedMultiplier: slowMouseSpeed}},
 	}, func(item record[core.MouseKey],
 		index int) core.Manipulator {
 		return simpleManipulator(
@@ -139,10 +157,10 @@ func mouseEmulationRule() core.Rule {
 	}
 
 	scrollManipulators := lo.Map(orderedMap[core.MouseKey]{
-		{"a", core.MouseKey{HorizontalWheel: 32}},
-		{"s", core.MouseKey{VerticalWheel: 32}},
-		{"w", core.MouseKey{VerticalWheel: -32}},
-		{"d", core.MouseKey{HorizontalWheel: -32}},
+		{arrowLiteralKey.LEFT_ARROW, core.MouseKey{HorizontalWheel: wheelMoveAmount}},
+		{arrowLiteralKey.DOWN_ARROW, core.MouseKey{VerticalWheel: wheelMoveAmount}},
+		{arrowLiteralKey.UP_ARROW, core.MouseKey{VerticalWheel: -wheelMoveAmount}},
+		{arrowLiteralKey.RIGHT_ARROW, core.MouseKey{HorizontalWheel: -wheelMoveAmount}},
 	}, func(item record[core.MouseKey],
 		index int) core.Manipulator {
 		return simpleManipulator(
@@ -169,8 +187,8 @@ func mouseEmulationRule() core.Rule {
 
 	scrollTriggerManipulator := []core.Manipulator{simpleManipulator(
 		requirement{
-			keyCode:    core.SEMICOLON,
-			modifiers:  []string{core.RIGHT_SHIFT},
+			keyCode: core.SEMICOLON,
+			// modifiers:  []string{core.RIGHT_SHIFT},
 			conditions: mouseCondition,
 		},
 		action{

@@ -8,7 +8,7 @@ func NewConfig() core.KarabinerConfig {
 			{
 				ComplexModifications: core.ComplexModifications{
 					Rules: []core.Rule{
-						wasdRule(),
+						arrowKeyRule(),
 						escAndDeleteRule(),
 						mouseEmulationRule(),
 					},
