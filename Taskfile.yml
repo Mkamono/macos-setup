@@ -90,8 +90,7 @@ tasks:
 
   brewfile:
     vars:
-      frequency:
-        sh: echo $((60*60*24)) # 1日
+      frequency: 3600 # 1時間
     cmd: brew bundle dump -f --no-vscode --file=home/Brewfile
     status:
       - "{{.MY_GO_BIN}}/fileage -seconds {{.frequency}} home/Brewfile"
