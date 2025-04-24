@@ -29,7 +29,8 @@
     "remote-settings.json": "jsonc",
     ".gitignore": "ignore",
     "*.env": "properties",
-    "vscode-settings.json": "jsonc"
+    "vscode-settings.json": "jsonc",
+    "*.json5": "jsonc"
   },
 
   // JSON Schema
@@ -129,5 +130,6 @@
     "git log",
     "git diff",
     "git show"
-  ]
+  ],
+  "gitlens.plusFeatures.enabled": false
 }
