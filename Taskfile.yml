@@ -22,7 +22,7 @@ tasks:
       - cd ~/macos-setup && task plist && task sync
 
   plist:
-    desc: launchdの設定ファイルを生成する
+    desc: launchdの設定ファイルを生成、適用する。-fフラグを付けると強制的に読み込める
     dir: ./LaunchAgents
     cmds:
       - rm -rf ./log

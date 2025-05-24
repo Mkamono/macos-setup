@@ -4,7 +4,6 @@ cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
 docker.docker
 eamodio.gitlens
-esbenp.prettier-vscode
 exiasr.hadolint
 foxundermoon.shell-format
 github.copilot
@@ -22,6 +21,7 @@ ms-vscode-remote.remote-containers
 ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 pkief.material-icon-theme
+qwtel.sqlite-viewer
 rangav.vscode-thunder-client
 redhat.vscode-yaml
 ritwickdey.liveserver

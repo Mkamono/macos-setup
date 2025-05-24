@@ -45,3 +45,4 @@ abbr -a -- mr 'mise run'
 
 # other
 abbr -a -- h history
+abbr -a -- act 'act --container-architecture linux/amd64'
