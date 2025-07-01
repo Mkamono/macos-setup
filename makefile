@@ -1,6 +1,6 @@
 default:
 	@/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	@cd home/.config && /opt/homebrew/bin/brew bundle || true
+	@cd home && /opt/homebrew/bin/brew bundle || true
 
 	@mkdir -p ~/.config/fish
 	@cp home/.config/fish/config.fish ~/.config/fish/config.fish
