@@ -1,5 +1,6 @@
 .task
 .DS_Store
 home/.config/argocd/config
+home/.config/glab-cli/config.yml
 home/.config/asciinema/install-id
 home/.config/configstore/update-notifier-@google/gemini-cli.json
