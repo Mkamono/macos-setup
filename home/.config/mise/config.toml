@@ -1,0 +1,5 @@
+[tools]
+"go:github.com/Mkamono/asciinemaForLLM" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:ccusage" = "latest"
+python = "latest"
