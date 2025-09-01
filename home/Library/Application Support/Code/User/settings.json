@@ -71,7 +71,7 @@
   "go.toolsManagement.autoUpdate": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -100,7 +100,10 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.enable": {
-    "*": true
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
   },
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
@@ -131,5 +134,44 @@
     "git diff",
     "git show"
   ],
-  "gitlens.plusFeatures.enabled": false
+  "gitlens.plusFeatures.enabled": false,
+  "diffEditor.codeLens": true,
+  "docker.extension.enableComposeLanguageServer": false,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": [
+        "-l"
+      ],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": [
+        "-l"
+      ]
+    },
+    "fish": {
+      "path": "fish",
+      "args": [
+        "-l"
+      ]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    },
+    "fish (2)": {
+      "path": "/opt/homebrew/bin/fish"
+    }
+  },
+  "vscode-office.editorTheme": "One Dark",
+  "cSpell.enabledNotifications": {
+    "Lines too Long": false
+  },
+  "go.goroot": "/opt/homebrew/Cellar/go/1.24.6/libexec",
 }
