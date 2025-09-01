@@ -1,6 +1,7 @@
 if status is-interactive
-    eval (/opt/homebrew/bin/brew shellenv)
     eval (mise activate fish)
+    eval (/opt/homebrew/bin/brew shellenv)
+    echo "Welcome to your Fish shell! 🌊"
     git -C ~/macos-setup --no-pager diff
     git -C ~/macos-setup ls-files --others --exclude-standard
 end
@@ -15,6 +16,13 @@ abbr -a -- gu 'git add . && git commit -m "update" && git push'
 abbr -a -- tf terraform
 abbr -a -- tfv 'terraform -v'
 abbr -a -- tfi 'terraform init'
+abbr -a -- tfl 'rm -f .terraform.lock.hcl && \
+    terraform providers lock \
+    -platform=darwin_amd64 \
+    -platform=darwin_arm64 \
+    -platform=linux_amd64 \
+    -platform=linux_arm64 \
+    -platform=windows_amd64'
 abbr -a -- tfa 'terraform apply'
 abbr -a -- tfaa 'terraform apply -auto-approve'
 abbr -a -- tfd 'terraform destroy'

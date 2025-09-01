@@ -1,5 +1,6 @@
 42crunch.vscode-openapi
 alefragnani.bookmarks
+anthropic.claude-code
 cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
 docker.docker
@@ -32,4 +33,3 @@ streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
 task.vscode-task
 usernamehw.errorlens
-yzhang.markdown-all-in-one

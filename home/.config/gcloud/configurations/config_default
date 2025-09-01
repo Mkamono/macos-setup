@@ -1,8 +1,0 @@
-[core]
-account = makoto.kamono@3-shake.com
-project = coastal-fiber-430001-s0
-
-[compute]
-zone = asia-northeast1-a
-region = asia-northeast1
-
