@@ -4,7 +4,6 @@ anthropic.claude-code
 cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
 docker.docker
-doprompt.doprompt
 eamodio.gitlens
 exiasr.hadolint
 foxundermoon.shell-format
