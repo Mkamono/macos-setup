@@ -4,6 +4,7 @@ anthropic.claude-code
 cweijan.dbclient-jdbc
 cweijan.vscode-database-client2
 docker.docker
+doprompt.doprompt
 eamodio.gitlens
 exiasr.hadolint
 foxundermoon.shell-format
@@ -33,3 +34,4 @@ streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
 task.vscode-task
 usernamehw.errorlens
+yzhang.markdown-all-in-one
