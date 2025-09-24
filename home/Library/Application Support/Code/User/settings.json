@@ -173,5 +173,4 @@
   "cSpell.enabledNotifications": {
     "Lines too Long": false
   },
-  "go.goroot": "/opt/homebrew/Cellar/go/1.24.6/libexec",
 }

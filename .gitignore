@@ -4,4 +4,6 @@ home/.config/argocd/config
 home/.config/glab-cli/config.yml
 home/.config/asciinema/install-id
 home/.config/configstore/update-notifier-@google/gemini-cli.json
+home/.config/configstore/@genkit-ai/tools-common.json
+home/.config/configstore/zenn-cli.json
 home/.config/gcloud/configurations/config_default
