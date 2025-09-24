@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mise list:*)",
+      "Read(//Users/kamonomakoto/.local/share/mise/installs/go/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
