@@ -1,5 +1,4 @@
 [tools]
-colima = "latest"
 gcloud = "latest"
 gh = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
