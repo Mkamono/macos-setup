@@ -68,8 +68,8 @@
   "git.ignoreRebaseWarning": true,
 
   // Language Specific
-  "go.goroot": "/Users/kamonomakoto/.local/share/mise/installs/go/latest",
-  "go.gopath": "/Users/kamonomakoto/go",
+  "go.goroot": "~/.local/share/mise/installs/go/latest",
+  "go.gopath": "~/go",
   "go.toolsManagement.autoUpdate": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescript]": {
